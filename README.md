@@ -9,3 +9,8 @@ git clone git@github.com:wckdouglas/ridgeplot-py.git
 cd ridgeplot-py
 python setup.py install 
 ```
+
+
+## Example ##
+
+A [notebook](https://github.com/wckdouglas/ridgeplot-py/blob/main/Example.ipynb) showing quick howto is included in this repo!
