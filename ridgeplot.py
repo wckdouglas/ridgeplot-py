@@ -4,6 +4,7 @@ import matplotlib.axes._axes
 import numpy as np
 from more_itertools import first
 from scipy.stats import gaussian_kde
+import matplotlib.pyplot as plt
 
 
 class RidgePlotError(Exception):
