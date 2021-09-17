@@ -83,13 +83,13 @@ def ridgeplot(
         xs = np.arange(xmin, xmax * 1.1, 0.01)  # xaxis is 10% wider than data max
         kde = gaussian_kde(data_values)
 
-        baseline = sample_number * 0.7
+        baseline = -sample_number * 0.7
         ys = scaling(kde.pdf(xs)) + baseline
         ax.plot(xs, ys, color=line_colors[sample_number], lw=2)
         ax.fill(xs, ys, color=fill_colors[sample_number])
         xlines.append(baseline)
         ax.text(xmin, baseline, data_key, ha="right", va="bottom", fontsize=label_size)
-    ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
+    #ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
     ax.get_yaxis().set_visible(False)
     for side in ["left", "right", "top"]:
         ax.spines[side].set_visible(False)
