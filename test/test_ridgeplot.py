@@ -15,27 +15,24 @@ def data():
 
 
 
-@patch('matplotlib.pyplot')
-def test_ridgeplot_bad_fill_color(pyplot, data):
-    fig = pyplot.figure()
-    ax = fig.add_subplot(111)
+@patch('matplotlib.pyplot.figure')
+def test_ridgeplot_bad_fill_color(figure, data):
+    ax = figure.add_subplot(111)
     with pytest.raises(RidgePlotError) as e:
         ridgeplot(ax=ax, data=data, fill_colors=['white','white'])
     assert 'fill_colors must be same length as data' in str(e.value), "Failed to catch fill color length diff"
 
 
-@patch('matplotlib.pyplot')
-def test_ridgeplot_bad_line_color(pyplot, data):
-    fig = pyplot.figure()
-    ax = fig.add_subplot(111)
+@patch('matplotlib.pyplot.figure')
+def test_ridgeplot_bad_line_color(figure, data):
+    ax = figure.add_subplot(111)
     with pytest.raises(RidgePlotError) as e:
         ridgeplot(ax=ax, data=data, line_colors=['white','white'])
     assert 'line_colors must be same length as data' in str(e.value), "Failed to catch line color length diff"
 
 
 
-@patch('matplotlib.pyplot')
-def test_ridgeplot(pyplot, data):
-    fig = pyplot.figure()
-    ax = fig.add_subplot(111)
+@patch("matplotlib.pyplot.figure")
+def test_ridgeplot(figure, data):
+    ax = figure.add_subplot(111)
     ridgeplot(ax, data, xlim=(-20,20))

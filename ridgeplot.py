@@ -4,11 +4,11 @@ import matplotlib.axes._axes
 import numpy as np
 from more_itertools import first
 from scipy.stats import gaussian_kde
-import matplotlib.pyplot as plt
 
 
 class RidgePlotError(Exception):
     pass
+
 
 def scaling(x: List[float]):
     """
@@ -61,9 +61,9 @@ def ridgeplot(
         fill_colors = len(data) * ["steelblue"]
 
     if line_colors is None:
-        line_colors = len(data) * ['white']
+        line_colors = len(data) * ["white"]
 
-    #assigning xlims if not given
+    # assigning xlims if not given
     if xlim is not None:
         xmin, xmax = xlim
     else:
@@ -73,10 +73,9 @@ def ridgeplot(
     # data validation
     if len(fill_colors) != len(data):
         raise RidgePlotError("fill_colors must be same length as data")
-    
+
     if len(line_colors) != len(data):
         raise RidgePlotError("line_colors must be same length as data")
-
 
     xlines = []
     for sample_number, (data_key, data_values) in enumerate(data.items()):
