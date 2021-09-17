@@ -75,6 +75,6 @@ def test_ColorEncoder_show_legend(figure, color_encoder):
     color_encoder.show_legend(ax)
 
 @patch("matplotlib.pyplot.figure")
-def test_ColorEncoder_show_legend(figure, color_encoder):
+def test_ColorEncoder_show_legend_sort(figure, color_encoder):
     ax = figure.add_subplot(111)
     color_encoder.show_legend(ax, sort=True)
