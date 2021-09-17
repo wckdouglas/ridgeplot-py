@@ -48,10 +48,17 @@ def test_ColorEncoder_transform(color_encoder):
     assert color_encoder.transform(["c", "c", "c"]) == ["blue", "blue", "blue"]
 
 
-def test_ColorEncoder_transform_fail(color_encoder):
+def test_ColorEncoder_transform_unseen(color_encoder):
     with pytest.raises(ValueError) as e:
         color_encoder.transform(["a", "b", "c", "d", "e"])
     assert "Input [categories] contain unseen data!!: d, e" in str(e.value)
+
+def test_ColorEncoder_transform_fail():
+    with pytest.raises(ValueError) as e:
+        ce = ColorEncoder()
+        ce.transform(['a','b','c'])
+    assert "Call color_encoder.fit() first" in str(e.value)
+
 
 
 def test_ColorEncoder_fit_transform(color_encoder):
@@ -66,3 +73,8 @@ def test_ColorEncoder_fit_transform(color_encoder):
 def test_ColorEncoder_show_legend(figure, color_encoder):
     ax = figure.add_subplot(111)
     color_encoder.show_legend(ax)
+
+@patch("matplotlib.pyplot.figure")
+def test_ColorEncoder_show_legend(figure, color_encoder):
+    ax = figure.add_subplot(111)
+    color_encoder.show_legend(ax, sort=True)
