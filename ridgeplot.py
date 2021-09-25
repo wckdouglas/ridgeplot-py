@@ -10,9 +10,13 @@ class RidgePlotError(Exception):
     pass
 
 
-def scaling(x: List[float]):
+def scaling(x: List[float]) -> np.ndarray:
     """
     scaling a vector to a range between 0 and 1
+
+    Example::
+
+        scaling([1,2,3,4])
 
     :param x: list of float data values
     :return: scaled values
@@ -30,17 +34,10 @@ def ridgeplot(
     fill_colors: List[str] = None,
     line_colors: List[str] = None,
     label_size: float = 10.0,
+    fill_alpha: float = 0.5,
 ) -> None:
     """
     plotting a ridgeplot
-
-    :param matplotlib.axes._axes.Axes ax: a matplotlib ax object for writing the plot
-    :param Dict data: data
-    :param Tuple xlim: x-limits for the plot (xmin, xmax)
-    :param List[str] fill_colors: colors for the fill under the distribution, must be same length as input data (default: all steelblue)
-    :param List[str] line_colors: colors for the line drawing the distribution, must be same length as input data (default: all white)
-    :param float label_size: label size of the name of each distribution
-
 
     Example::
 
@@ -54,6 +51,14 @@ def ridgeplot(
         fig = plt.figure()
         ax = fig.add_subplot(111)
         ridgeplot(ax, data, xlim=(-20,20))
+
+    :param matplotlib.axes._axes.Axes ax: a matplotlib ax object for writing the plot
+    :param Dict data: data
+    :param Tuple xlim: x-limits for the plot (xmin, xmax)
+    :param List[str] fill_colors: colors for the fill under the distribution, must be same length as input data (default: all steelblue)
+    :param List[str] line_colors: colors for the line drawing the distribution, must be same length as input data (default: all white)
+    :param float label_size: label size of the name of each distribution
+    :param float fill_alpha: alpha value for the fill under the distribution (default: 0.5)
     """
 
     # assigning colors if not given
@@ -86,10 +91,10 @@ def ridgeplot(
         baseline = -sample_number * 0.7
         ys = scaling(kde.pdf(xs)) + baseline
         ax.plot(xs, ys, color=line_colors[sample_number], lw=2)
-        ax.fill(xs, ys, color=fill_colors[sample_number])
+        ax.fill(xs, ys, color=fill_colors[sample_number], alpha=fill_alpha)
         xlines.append(baseline)
         ax.text(xmin, baseline, data_key, ha="right", va="bottom", fontsize=label_size)
-    #ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
+    # ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
     ax.get_yaxis().set_visible(False)
     for side in ["left", "right", "top"]:
         ax.spines[side].set_visible(False)

@@ -77,6 +77,7 @@ class ColorPalette(Enum):
         "#999999",
     ]
 
+
 def ordered_set(xs: List[str]) -> List[str]:
     """
     this is a simple function to make a set according to the order of the input list
@@ -87,7 +88,7 @@ def ordered_set(xs: List[str]) -> List[str]:
     :return:  a list of unique input values in the order of how they arranged in the input list
     :rtype: List[str]
     """
-    xs=list(xs)
+    xs = list(xs)
     return sorted(set(xs), key=xs.index)
 
 
@@ -103,7 +104,7 @@ def check_color_vector_size(
     :rtype: List[str]
     """
     categories = ordered_set(categorical_vector)
-    
+
     if len(categories) > len(color_vector):
         raise ValueError(
             f"Not enough colors!! {len(color_vector)} colors for {len(categories)} categories"

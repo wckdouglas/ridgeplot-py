@@ -2,8 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from colors import (ColorEncoder, ColorPalette, check_color_vector_size,
-                    ordered_set)
+from colors import ColorEncoder, ColorPalette, check_color_vector_size, ordered_set
 
 
 @pytest.fixture(scope="module")
@@ -53,12 +52,12 @@ def test_ColorEncoder_transform_unseen(color_encoder):
         color_encoder.transform(["a", "b", "c", "d", "e"])
     assert "Input [categories] contain unseen data!!: d, e" in str(e.value)
 
+
 def test_ColorEncoder_transform_fail():
     with pytest.raises(ValueError) as e:
         ce = ColorEncoder()
-        ce.transform(['a','b','c'])
+        ce.transform(["a", "b", "c"])
     assert "Call color_encoder.fit() first" in str(e.value)
-
 
 
 def test_ColorEncoder_fit_transform(color_encoder):
@@ -73,6 +72,7 @@ def test_ColorEncoder_fit_transform(color_encoder):
 def test_ColorEncoder_show_legend(figure, color_encoder):
     ax = figure.add_subplot(111)
     color_encoder.show_legend(ax)
+
 
 @patch("matplotlib.pyplot.figure")
 def test_ColorEncoder_show_legend_sort(figure, color_encoder):
