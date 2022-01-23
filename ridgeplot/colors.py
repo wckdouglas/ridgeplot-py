@@ -2,9 +2,9 @@ from collections import OrderedDict
 from enum import Enum
 from typing import List
 
-import matplotlib.axes as mpl_axes  # type: ignore
-import matplotlib.patches as mpatches  # type: ignore
-from matplotlib import legend  # type: ignore
+import matplotlib.axes as mpl_axes
+import matplotlib.patches as mpatches
+from matplotlib import legend
 
 
 class ColorPalette(Enum):

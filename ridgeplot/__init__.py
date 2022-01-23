@@ -1,10 +1,10 @@
 from typing import Dict, List, Optional, Tuple
 
-import matplotlib.axes as mpl_axes  # type: ignore
+import matplotlib.axes as mpl_axes
 import numpy as np
 import numpy.typing as npt
 from more_itertools import first
-from scipy.stats import gaussian_kde  # type: ignore
+from scipy.stats import gaussian_kde
 
 
 class RidgePlotError(Exception):
