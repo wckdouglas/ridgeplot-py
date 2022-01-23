@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from enum import Enum
-from typing import List, Set
+from typing import List, OrderedDict
 
 import matplotlib.patches as mpatches  # type: ignore
 from matplotlib import legend  # type: ignore
@@ -129,9 +129,9 @@ class ColorEncoder:
     """
 
     def __init__(self):
-        self.x = None  # type: List[str]
-        self.distinct_categories = None  # type: Set[str]
-        self.encoder = None  #: color encoder dictionary
+        self.x: List[str] = None
+        self.distinct_categories: List[str] = None
+        self.encoder: OrderedDict[str, str] = None
 
     def fit(
         self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value
@@ -150,9 +150,9 @@ class ColorEncoder:
         :rtype: NoneType
         """
         self.distinct_categories = check_color_vector_size(categories, colors)
-        self.encoder = {
-            category: col for category, col in zip(self.distinct_categories, colors)
-        }
+        self.encoder = OrderedDict(
+            {category: col for category, col in zip(self.distinct_categories, colors)}
+        )
 
     def transform(self, categories: List[str]) -> List[str]:
         """
@@ -174,8 +174,8 @@ class ColorEncoder:
         union_set = set(self.distinct_categories).union(set(categories))
         if len(union_set) != len(self.distinct_categories):
             unseen = union_set - set(self.distinct_categories)
-            unseen = ", ".join(sorted(list(unseen)))
-            raise ValueError(f"Input [categories] contain unseen data!!: {unseen}")
+            unseen_str = ", ".join(sorted(list(unseen)))
+            raise ValueError(f"Input [categories] contain unseen data!!: {unseen_str}")
 
         return [self.encoder[category] for category in categories]
 
