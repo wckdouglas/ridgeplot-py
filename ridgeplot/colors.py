@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from enum import Enum
-from typing import List, OrderedDict
+from typing import List
 
 import matplotlib.axes as mpl_axes  # type: ignore
 import matplotlib.patches as mpatches  # type: ignore
