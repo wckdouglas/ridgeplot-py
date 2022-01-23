@@ -126,9 +126,9 @@ class ColorEncoder:
     """
 
     def __init__(self):
-        self.x: List[str] = None
-        self.distinct_categories: List[str] = None
-        self.encoder: OrderedDict[str, str] = None
+        self.x: List[str] = list()
+        self.distinct_categories: List[str] = list()
+        self.encoder: OrderedDict[str, str] = list()
 
     def fit(self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value) -> None:
         """
@@ -185,7 +185,7 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax: mpl_axes = None, sort: bool = False, **kwargs) -> legend.Legend:
+    def show_legend(self, ax: mpl_axes, sort: bool = False, **kwargs) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 

@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import matplotlib.axes as mpl_axes  # type: ignore
 import numpy as np
@@ -31,9 +31,9 @@ def scaling(x: List[float]) -> npt.NDArray[np.float64]:
 def ridgeplot(
     ax: mpl_axes,
     data: Dict[str, List[float]],
-    xlim: Tuple[float, float] = None,
-    fill_colors: List[str] = None,
-    line_colors: List[str] = None,
+    xlim: Optional[Tuple[float, float]] = None,
+    fill_colors: Optional[List[str]] = None,
+    line_colors: Optional[List[str]] = None,
     label_size: float = 10.0,
     fill_alpha: float = 0.5,
 ) -> None:
