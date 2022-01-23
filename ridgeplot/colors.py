@@ -2,6 +2,7 @@ from collections import OrderedDict
 from enum import Enum
 from typing import List, OrderedDict
 
+import matplotlib.axes as mpl_axes  # type: ignore
 import matplotlib.patches as mpatches  # type: ignore
 from matplotlib import legend  # type: ignore
 
@@ -24,7 +25,7 @@ class ColorPalette(Enum):
     https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R
     """
 
-    maximum = [
+    maximum: List[str] = [
         "#f58231",
         "#e6194b",
         "#3cb44b",
@@ -48,7 +49,7 @@ class ColorPalette(Enum):
         "#ffffff",
         "#000000",
     ]
-    simpsons = [
+    simpsons: List[str] = [
         "#FED439",
         "#709AE1",
         "#8A9197",
@@ -66,7 +67,7 @@ class ColorPalette(Enum):
         "#1A9993",
         "#FD8CC1",
     ]
-    okabeito = [
+    okabeito: List[str] = [
         "#E69F00",
         "#56B4E9",
         "#009E73",
@@ -194,7 +195,9 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax=None, sort=False, **kwargs) -> legend.Legend:
+    def show_legend(
+        self, ax: mpl_axes = None, sort: bool = False, **kwargs
+    ) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 
