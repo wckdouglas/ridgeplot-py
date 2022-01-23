@@ -93,9 +93,7 @@ def ordered_set(xs: List[str]) -> List[str]:
     return sorted(set(xs), key=xs.index)
 
 
-def check_color_vector_size(
-    categorical_vector: List[str], color_vector: List[str]
-) -> List[str]:
+def check_color_vector_size(categorical_vector: List[str], color_vector: List[str]) -> List[str]:
     """
     asserting the number of different categories in the input list is less than the given color list
 
@@ -107,9 +105,7 @@ def check_color_vector_size(
     categories = ordered_set(categorical_vector)
 
     if len(categories) > len(color_vector):
-        raise ValueError(
-            f"Not enough colors!! {len(color_vector)} colors for {len(categories)} categories"
-        )
+        raise ValueError(f"Not enough colors!! {len(color_vector)} colors for {len(categories)} categories")
     return categories
 
 
@@ -134,9 +130,7 @@ class ColorEncoder:
         self.distinct_categories: List[str] = None
         self.encoder: OrderedDict[str, str] = None
 
-    def fit(
-        self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value
-    ) -> None:
+    def fit(self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value) -> None:
         """
         mapping colors to the unique categories in the input list
         basically fill the encoder dictionary
@@ -151,9 +145,7 @@ class ColorEncoder:
         :rtype: NoneType
         """
         self.distinct_categories = check_color_vector_size(categories, colors)
-        self.encoder = OrderedDict(
-            {category: col for category, col in zip(self.distinct_categories, colors)}
-        )
+        self.encoder = OrderedDict({category: col for category, col in zip(self.distinct_categories, colors)})
 
     def transform(self, categories: List[str]) -> List[str]:
         """
@@ -180,9 +172,7 @@ class ColorEncoder:
 
         return [self.encoder[category] for category in categories]
 
-    def fit_transform(
-        self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value
-    ) -> List[str]:
+    def fit_transform(self, categories: List[str], colors: List[str] = ColorPalette.okabeito.value) -> List[str]:
         """
         first map the color to the categories, and then return the corresponding color for each category in the input list
 
@@ -195,9 +185,7 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(
-        self, ax: mpl_axes = None, sort: bool = False, **kwargs
-    ) -> legend.Legend:
+    def show_legend(self, ax: mpl_axes = None, sort: bool = False, **kwargs) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 
@@ -209,11 +197,7 @@ class ColorEncoder:
         """
 
         if sort:
-            self.encoder = OrderedDict(
-                sorted(self.encoder.items(), key=lambda item: item[0])
-            )
-        pat = [
-            mpatches.Patch(color=col, label=lab) for lab, col in self.encoder.items()
-        ]
+            self.encoder = OrderedDict(sorted(self.encoder.items(), key=lambda item: item[0]))
+        pat = [mpatches.Patch(color=col, label=lab) for lab, col in self.encoder.items()]
         lgd = ax.legend(handles=pat, **kwargs)
         return lgd
