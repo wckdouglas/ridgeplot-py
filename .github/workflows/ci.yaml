@@ -50,5 +50,5 @@ jobs:
 
       - name: type check
         run: |
-          poetry run mypy .
+          poetry run mypy ridgeplot
 
