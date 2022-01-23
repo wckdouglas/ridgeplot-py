@@ -1,16 +1,17 @@
 from typing import Dict, List, Tuple
 
-import matplotlib.axes._axes
+import matplotlib.axes as mpl_axes  # type: ignore
 import numpy as np
+import numpy.typing as npt
 from more_itertools import first
-from scipy.stats import gaussian_kde
+from scipy.stats import gaussian_kde  # type: ignore
 
 
 class RidgePlotError(Exception):
     pass
 
 
-def scaling(x: List[float]) -> np.ndarray:
+def scaling(x: List[float]) -> npt.NDArray[np.float64]:
     """
     scaling a vector to a range between 0 and 1
 
@@ -22,13 +23,13 @@ def scaling(x: List[float]) -> np.ndarray:
     :return: scaled values
     :rtype: np.array
     """
-    x = np.array(x, dtype="float")
-    x = (x - x.min()) / (x.max() - x.min())
-    return x
+    np_x = np.array(x, dtype="float")
+    np_x = (np_x - np_x.min()) / (np_x.max() - np_x.min())
+    return np_x
 
 
 def ridgeplot(
-    ax: matplotlib.axes._axes.Axes,
+    ax: mpl_axes,
     data: Dict[str, List[float]],
     xlim: Tuple[float, float] = None,
     fill_colors: List[str] = None,
@@ -84,9 +85,9 @@ def ridgeplot(
 
     xlines = []
     for sample_number, (data_key, data_values) in enumerate(data.items()):
-        data_values = np.array(data_values, dtype="float")
+        data_values_array = np.array(data_values, dtype="float")
         xs = np.arange(xmin, xmax * 1.1, 0.01)  # xaxis is 10% wider than data max
-        kde = gaussian_kde(data_values)
+        kde = gaussian_kde(data_values_array)
 
         baseline = -sample_number * 0.7
         ys = scaling(kde.pdf(xs)) + baseline

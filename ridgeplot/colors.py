@@ -2,8 +2,8 @@ from collections import OrderedDict
 from enum import Enum
 from typing import List, Set
 
-import matplotlib.patches as mpatches
-from matplotlib import legend
+import matplotlib.patches as mpatches  # type: ignore
+from matplotlib import legend  # type: ignore
 
 
 class ColorPalette(Enum):

@@ -2,7 +2,12 @@ from unittest.mock import patch
 
 import pytest
 
-from ridgeplot.colors import ColorEncoder, ColorPalette, check_color_vector_size, ordered_set
+from ridgeplot.colors import (
+    ColorEncoder,
+    ColorPalette,
+    check_color_vector_size,
+    ordered_set,
+)
 
 
 @pytest.fixture(scope="module")
