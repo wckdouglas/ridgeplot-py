@@ -92,7 +92,7 @@ def ridgeplot(
         baseline = -sample_number * 0.7
         ys = scaling(kde.pdf(xs)) + baseline
         ax.plot(xs, ys, color=line_colors[sample_number], lw=2)
-        ax.fill(xs, ys, color=fill_colors[sample_number], alpha=fill_alpha)
+        ax.fill_between(x=xs, y1=ys, y2=baseline, color=fill_colors[sample_number], alpha=fill_alpha)
         xlines.append(baseline)
         ax.text(xmin, baseline, data_key, ha="right", va="bottom", fontsize=label_size)
     # ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
