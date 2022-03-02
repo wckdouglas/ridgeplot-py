@@ -132,8 +132,8 @@ class ColorEncoder:
 
     def __init__(self):
         self.x: list[str] = list()
-        self.distinct_categories: list[str] = list()
-        self.encoder: OrderedDict[str, str] = list()
+        self.distinct_categories: list[str] = []
+        self.encoder: OrderedDict[str, str] = OrderedDict()
 
     def fit(self, categories: list[str], colors: list[str] = ColorPalette["invitae"]) -> None:
         """
