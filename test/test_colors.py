@@ -27,10 +27,10 @@ def test_ordered_set(input, output):
 
 @pytest.mark.parametrize(
     "palette, expected_num",
-    [("maximum", 22), ("simpsons", 16), ("okabeito", 8)],
+    [("maximum", 22), ("simpsons", 16), ("okabeito", 8), ("invitae", 8)],
 )
 def test_ColorPalette(palette, expected_num):
-    assert len(ColorPalette[palette].value) == expected_num
+    assert len(ColorPalette[palette]) == expected_num
 
 
 def test_check_color_vector_size():
@@ -66,9 +66,7 @@ def test_ColorEncoder_transform_fail():
 
 
 def test_ColorEncoder_fit_transform(color_encoder):
-    colors = color_encoder.fit_transform(
-        ["a", "b", "c", "b", "a"], ["red", "green", "blue"]
-    )
+    colors = color_encoder.fit_transform(["a", "b", "c", "b", "a"], ["red", "green", "blue"])
     assert color_encoder.encoder == {"a": "red", "b": "green", "c": "blue"}
     assert colors == ["red", "green", "blue", "green", "red"]
 
