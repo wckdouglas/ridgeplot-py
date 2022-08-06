@@ -98,6 +98,7 @@ def ridgeplot(
         xlines.append(baseline)
         ax.text(xmin, baseline, data_key, ha="right", va="bottom", fontsize=label_size)
     # ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
+    ax.legend(loc='center').set_visible(False)
     ax.get_yaxis().set_visible(False)
     for side in ["left", "right", "top"]:
         ax.spines[side].set_visible(False)
