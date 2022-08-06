@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Plotting ridgeplots with matplotlib"
 authors = ["Douglas Wu <wckdouglas@gmail.com>"]
 license = "MIT"
+packages = [
+    {"include" = "ridgeplot"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
