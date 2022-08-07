@@ -40,6 +40,8 @@ ridgeplot(
 )
 ```
 
+![img](https://raw.githubusercontent.com/wckdouglas/ridgeplot-py/main/img/ridgeplot.png)
+
 
 ## Example ##
 
