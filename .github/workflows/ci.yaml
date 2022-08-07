@@ -35,10 +35,6 @@ jobs:
         run: |
           poetry install -E dev
         
-      - name: Install packages
-        run: |
-          poetry run python setup.py install
-
       - name: Test with pytest
         run: |
           poetry run coverage run -m pytest -l  -rPap -vvv -p no:warnings 
