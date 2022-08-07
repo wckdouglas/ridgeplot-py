@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ridgeplot-py"
-version = "0.1.1"
+version = "0.1.2"
 description = "Plotting ridgeplots with matplotlib"
 authors = ["Douglas Wu <wckdouglas@gmail.com>"]
 license = "MIT"
