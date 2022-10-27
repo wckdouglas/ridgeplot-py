@@ -1,8 +1,12 @@
+"""This module collects functions for manipulating color legends
+for matplotlib plots and a collections of color palettes. 
+"""
+
 from __future__ import annotations
 
 from collections import OrderedDict
 
-import matplotlib.axes as mpl_axes
+import matplotlib.axes
 import matplotlib.patches as mpatches
 from matplotlib import legend
 
@@ -90,9 +94,11 @@ def ordered_set(xs: list[str]) -> list[str]:
 
     because python set is unordered, https://stackoverflow.com/questions/9792664/converting-a-list-to-a-set-changes-element-order
 
-    :param List[str] xs: list of input values
-    :return:  a list of unique input values in the order of how they arranged in the input list
-    :rtype: List[str]
+    Args:
+        xs: list of input values
+
+    Returns:
+        a list of unique input values in the order of how they arranged in the input list
     """
     xs = list(xs)
     return sorted(set(xs), key=xs.index)
@@ -102,10 +108,12 @@ def check_color_vector_size(categorical_vector: list[str], color_vector: list[st
     """
     asserting the number of different categories in the input list is less than the given color list
 
-    :param List[str] categorical_vector: list of input values (i.e. labels of the samples), can be duplicated
-    :param List[str] color_vector: list of colors, intentionally not checked for duplication
-    :return: list of unique categories in the input list
-    :rtype: List[str]
+    Args:
+        categorical_vector: list of input values (i.e. labels of the samples), can be duplicated
+        color_vector: list of colors, intentionally not checked for duplication
+
+    Returns:
+        list of unique categories in the input list
     """
     categories = ordered_set(categorical_vector)
 
@@ -117,17 +125,35 @@ def check_color_vector_size(categorical_vector: list[str], color_vector: list[st
 class ColorEncoder:
     """
     color-encoding a categoric vector
-    Example::
-        categorical_vector = ['a','b','c','a']
-        colors = obakeito_palette()
-        ce = color_encoder()
-        ce.fit(categorical_vector, colors)
-        encoded_colors = ce.transform(new_categorical_vector)
-    or::
-        ce = color_encoder()
-        encoded_colors = ce.fit_transform(categorical_vector, colors)
-    access color encoder::
-        encoded_color_map = ce.encoder
+
+    Example:
+        ```
+        >>> categorical_vector = ['group a','group b','group c','group a']
+        >>> colors = ColorPalette["okabeito"]
+        >>> ce = ColorEncoder()
+        >>> ce.fit(categorical_vector, colors)
+        >>> ce.encoder
+        OrderedDict([('group a', '#E69F00'),
+             ('group b', '#56B4E9'),
+             ('group c', '#009E73')])
+        >>> ce.transform(["group b", "group c", "group a"])
+        ['#56B4E9', '#009E73', '#E69F00']
+        ```
+
+    or:
+        ```
+        >>> ce = ColorEncoder()
+        >>> ce.fit_transform(categorical_vector, colors)
+        ['#E69F00', '#56B4E9', '#009E73', '#E69F00']
+        ```
+
+    access color encoder:
+        ```
+        >>> ce.encoder
+        OrderedDict([('group a', '#E69F00'),
+             ('group b', '#56B4E9'),
+             ('group c', '#009E73')])
+        ```
     """
 
     def __init__(self):
@@ -140,14 +166,19 @@ class ColorEncoder:
         mapping colors to the unique categories in the input list
         basically fill the encoder dictionary
 
-        Example::
-            ce = color_encoder()
-            ce.fit(categroical_vector, colors)
+        Example:
+            ```
+            >>> categorical_vector = ['group a','group b','group c','group a']
+            >>> colors = ColorPalette["okabeito"]
+            >>> ce = ColorEncoder()
+            >>> ce.fit(categroical_vector, colors)
+            ```
 
-        :param List[str] categories: list of input values (i.e. labels of the samples), can be duplicated
-        :param List[str] colors: list of colors, intentionally not checked for duplication
-        :return: None
-        :rtype: NoneType
+        Args:
+            categories: list of input values (i.e. labels of the samples), can be duplicated
+            colors: list of colors, intentionally not checked for duplication
+        Returns:
+            NoneType
         """
         self.distinct_categories = check_color_vector_size(categories, colors)
         self.encoder = OrderedDict({category: col for category, col in zip(self.distinct_categories, colors)})
@@ -156,15 +187,21 @@ class ColorEncoder:
         """
         mapping color to the a list of category in the input list
 
-        Example::
-            ce = color_encoder()
-            ce.fit(categroical_vector, colors)
-            encoded_colors = ce.transform(new_categorical_vector)
+        Example:
+            ```
+            >>> categorical_vector = ['group a','group b','group c','group a']
+            >>> colors = ColorPalette["okabeito"]
+            >>> ce = color_encoder()
+            >>> ce.fit(categroical_vector, colors)
+            >>> new_categorical_vector = ["group b", "group c"]
+            >>> ce.transform(new_categorical_vector)
+            ['#56B4E9', '#009E73']
+            ```
 
-        :parma List[str] categories: list of input values (i.e. labels of the samples), can be duplicated
-        :return: list of colors for the input list according to the fitted color encoder
-        :rtype: List[str]
-
+        Args:
+            categories: list of input values (i.e. labels of the samples), can be duplicated
+        Returns:
+            list of colors for the input list according to the fitted color encoder
         """
         if not self.encoder:
             raise ValueError("Call color_encoder.fit() first!!")
@@ -181,24 +218,35 @@ class ColorEncoder:
         """
         first map the color to the categories, and then return the corresponding color for each category in the input list
 
-        Example::
-            ce = color_encoder()
-            encoded_colors = ce.fit_transform(categorical_vector, colors)
+        Example:
+            ```
+            >>> categorical_vector = ["group1", "group2", "group1"]
+            >>> colors = ["salmon","gold"]
+            >>> ce = ColorEncoder()
+            >>> ce.fit_transform(categorical_vector, colors)
+            ['salmon', 'gold', 'salmon']
+            ```
 
-        :param List[str] xs: list of input values (i.e. labels of the samples), can be duplicated
+        Args:
+            categories: list of input values (i.e. labels of the samples), can be duplicated
+            colors: list of colors to be assigned to the categories
+        Returns:
+            list of colors corresponding to the input
         """
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax: mpl_axes, sort: bool = False, **kwargs) -> legend.Legend:
+    def show_legend(self, ax: matplotlib.axes, sort: bool = False, **kwargs: dict[str, Any]) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 
-        :param matplotlib.axes._axes.Axe ax: matplotlib ax object
-        :param bool sort: sort the legend by the category
-        :param kwargs: keyword arguments for matplotlib.pyplot.legend
-        :return: the matplotlib legend object
-        :rtype: matplotlib.legend.Legend
+        Args:
+            ax: matplotlib ax object
+            sort: sort the legend by the category
+            **kwargs: keyword arguments for matplotlib.pyplot.legend
+
+        Returns:
+            the matplotlib legend object
         """
 
         if sort:

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ridgeplot-py"
-version = "0.1.3"
+version = "0.2.0"
 description = "Plotting ridgeplots with matplotlib"
 authors = ["Douglas Wu <wckdouglas@gmail.com>"]
 license = "MIT"
@@ -9,12 +9,15 @@ packages = [
 ]
 readme = "README.md"
 
+[virtualenvs]
+path = ".venv"
+
 [tool.poetry.dependencies]
-python = "^3.7"
-scipy = "^1.4.1"
+python = "^3.6"
 matplotlib = "^3.1.3"
 more-itertools = "^8.9.0"
 numpy = "^1.21.1"
+scipy = "^1.9.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

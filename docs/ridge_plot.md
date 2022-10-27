@@ -1,0 +1,1 @@
+::: ridgeplot.ridge_plot

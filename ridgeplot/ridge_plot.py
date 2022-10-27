@@ -1,37 +1,24 @@
+"""This module contains the main function to plot 
+[ridgeplots](https://clauswilke.com/blog/2017/09/15/goodbye-joyplots/).
+"""
 from __future__ import annotations
 
 from typing import Optional
 
-import matplotlib.axes as mpl_axes
+import matplotlib.axes
 import numpy as np
-import numpy.typing as npt
 from more_itertools import first
 from scipy.stats import gaussian_kde
+
+from ridgeplot.stats import scaling
 
 
 class RidgePlotError(Exception):
     pass
 
 
-def scaling(x: list[float]) -> npt.NDArray[np.float64]:
-    """
-    scaling a vector to a range between 0 and 1
-
-    Example::
-
-        scaling([1,2,3,4])
-
-    :param x: list of float data values
-    :return: scaled values
-    :rtype: np.array
-    """
-    np_x = np.array(x, dtype="float")
-    np_x = (np_x - np_x.min()) / (np_x.max() - np_x.min())
-    return np_x
-
-
 def ridgeplot(
-    ax: mpl_axes,
+    ax: matplotlib.axes,
     data: dict[str, list[float]],
     xlim: Optional[tuple[float, float]] = None,
     fill_colors: Optional[list[str]] = None,
@@ -42,26 +29,31 @@ def ridgeplot(
     """
     plotting a ridgeplot
 
-    Example::
+    Example:
+        ```
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
 
-        import numpy as np
-        import matplotlib.pyplot as plt
+        >>> data = {}
+        >>> for i in range(10):
+        >>>    data['data_{}'.format(i)] = np.random.randn(100) * (i+1)
 
-        data = {}
-        for i in range(10):
-            data['data_{}'.format(i)] = np.random.randn(100) * (i+1)
+        >>> fig = plt.figure()
+        >>> ax = fig.add_subplot(111)
+        >>> ridgeplot(ax, data, xlim=(-20,20))
+        ```
 
-        fig = plt.figure()
-        ax = fig.add_subplot(111)
-        ridgeplot(ax, data, xlim=(-20,20))
+    Args:
+        ax: a matplotlib ax object for writing the plot
+        data: a dictionary of data, key is the label of the group, values are the data values in the group
+        xlim: x-limits for the plot (xmin, xmax)
+        fill_colors: colors for the fill under the distribution, must be same length as input data (default: all steelblue)
+        line_colors: colors for the line drawing the distribution, must be same length as input data (default: all white)
+        label_size: label size of the name of each distribution
+        fill_alpha: alpha value for the fill under the distribution (default: 0.5)
 
-    :param matplotlib.axes._axes.Axes ax: a matplotlib ax object for writing the plot
-    :param Dict data: data
-    :param Tuple xlim: x-limits for the plot (xmin, xmax)
-    :param List[str] fill_colors: colors for the fill under the distribution, must be same length as input data (default: all steelblue)
-    :param List[str] line_colors: colors for the line drawing the distribution, must be same length as input data (default: all white)
-    :param float label_size: label size of the name of each distribution
-    :param float fill_alpha: alpha value for the fill under the distribution (default: 0.5)
+    Returns:
+        NoneType
     """
 
     # assigning colors if not given
@@ -98,7 +90,7 @@ def ridgeplot(
         xlines.append(baseline)
         ax.text(xmin, baseline, data_key, ha="right", va="bottom", fontsize=label_size)
     # ax.hlines(xlines, xmin=xmin, xmax=xmax * 1.1, color="black", lw=1)
-    ax.legend(loc='center').set_visible(False)
+    ax.legend(loc="center").set_visible(False)
     ax.get_yaxis().set_visible(False)
     for side in ["left", "right", "top"]:
         ax.spines[side].set_visible(False)
