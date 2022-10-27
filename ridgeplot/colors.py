@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from collections import OrderedDict
 
-import matplotlib.axes as mpl_axes
+import matplotlib.axes
 import matplotlib.patches as mpatches
 from matplotlib import legend
 
@@ -111,8 +111,8 @@ def check_color_vector_size(categorical_vector: list[str], color_vector: list[st
     Args:
         categorical_vector: list of input values (i.e. labels of the samples), can be duplicated
         color_vector: list of colors, intentionally not checked for duplication
-    
-    Returns: 
+
+    Returns:
         list of unique categories in the input list
     """
     categories = ordered_set(categorical_vector)
@@ -228,7 +228,7 @@ class ColorEncoder:
             ```
 
         Args:
-            categorical_vector: list of input values (i.e. labels of the samples), can be duplicated
+            categories: list of input values (i.e. labels of the samples), can be duplicated
             colors: list of colors to be assigned to the categories
         Returns:
             list of colors corresponding to the input
@@ -236,15 +236,15 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax: mpl_axes, sort: bool = False, **kwargs) -> legend.Legend:
+    def show_legend(self, ax: matplotlib.axes, sort: bool = False, **kwargs) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 
         Args:
-            matplotlib.axes._axes.Axe ax: matplotlib ax object
+            ax: matplotlib ax object
             sort: sort the legend by the category
-            kwargs: keyword arguments for matplotlib.pyplot.legend
-        
+            **kwargs: keyword arguments for matplotlib.pyplot.legend
+
         Returns:
             the matplotlib legend object
         """
