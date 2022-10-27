@@ -5,6 +5,7 @@ for matplotlib plots and a collections of color palettes.
 from __future__ import annotations
 
 from collections import OrderedDict
+from typing import Any
 
 import matplotlib.axes
 import matplotlib.patches as mpatches
