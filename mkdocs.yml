@@ -1,0 +1,14 @@
+site_name: ridgeplot-py
+
+theme:
+  name: "material"
+
+plugins:
+- search
+- mkdocstrings
+
+nav:
+  - ridgeplot-py docs: index.md
+  - ridgeplot.colors: colors.md
+  - ridgeplot.ridge_plot: ridge_plot.md
+
