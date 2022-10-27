@@ -11,4 +11,5 @@ nav:
   - ridgeplot-py docs: index.md
   - ridgeplot.colors: colors.md
   - ridgeplot.ridge_plot: ridge_plot.md
+  - ridgeplot.stats: stats.md
 
