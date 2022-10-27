@@ -1,4 +1,4 @@
-name: ci 
+name: deploy doc
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
 
 jobs:
   deploy:
-    needs: Poetry build
+    name: deploy doc
+    needs: Poetry-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,5 +16,5 @@ jobs:
         with:
           python-version: 3.x
       - run: |
-        pip install mkdocs-material mkdocstrings-python mkdocs
+        pip install mkdocs-material mkdocstrings-python mkdocs 
         mkdocs gh-deploy --force
