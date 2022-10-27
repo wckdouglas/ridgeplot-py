@@ -7,7 +7,8 @@ Ridgeplot is a great data visualization technique to compare distributions from 
 [ridgeplot-py](https://pypi.org/project/ridgeplot-py/) provides a simple API to produce matplotlib-compatible ridgeplots, as well as a handy [ColorEncoder](https://github.com/wckdouglas/ridgeplot-py/blob/0198628ce0622e2e7f4f4e9284165d5d09324ca9/ridgeplot/colors.py#L117) class with scikit-learn syntax for manipulating color annotations in a consistent way [through out manuscripts or presentations].
 
 
-# Table of content
+# Modules
 
 1. [colors](colors.md)
 2. [ridgeplot](ridge_plot.md)
+3. [stats](stats.md)
