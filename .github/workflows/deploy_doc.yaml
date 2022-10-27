@@ -2,13 +2,12 @@ name: deploy doc
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   deploy:
     name: deploy doc
-    needs: Poetry-build
+    needs: poetry-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
