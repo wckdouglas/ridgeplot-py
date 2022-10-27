@@ -16,8 +16,8 @@ jobs:
 
       - name: build and deploy doc
         uses: actions/setup-python@v2
-          with:
-            python-version: 3.x
+        with:
+          python-version: 3.x
         run: |
           pip install mkdocs-material mkdocstrings-python mkdocs 
           mkdocs gh-deploy --force
