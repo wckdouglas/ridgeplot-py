@@ -19,5 +19,9 @@ def scaling(x: list[float]) -> npt.NDArray[np.float64]:
         An numpy array of the scaled values
     """
     np_x = np.array(x, dtype="float")
+
+    if len(np.unique(np_x)) == 1:
+        raise ValueError("The input list should not be homogenous")
+
     np_x = (np_x - np_x.min()) / (np_x.max() - np_x.min())
     return np_x
