@@ -128,22 +128,31 @@ class ColorEncoder:
 
     Example:
         ```
-        >>> categorical_vector = ['a','b','c','a']
-        >>> colors = obakeito_palette()
+        >>> categorical_vector = ['group a','group b','group c','group a']
+        >>> colors = ColorPalette["okabeito"]
         >>> ce = ColorEncoder()
         >>> ce.fit(categorical_vector, colors)
-        >>> encoded_colors = ce.transform(new_categorical_vector)
+        >>> ce.encoder
+        OrderedDict([('group a', '#E69F00'),
+             ('group b', '#56B4E9'),
+             ('group c', '#009E73')])
+        >>> ce.transform(["group b", "group c", "group a"])
+        ['#56B4E9', '#009E73', '#E69F00']
         ```
 
     or:
         ```
         >>> ce = ColorEncoder()
-        >>> encoded_colors = ce.fit_transform(categorical_vector, colors)
+        >>> ce.fit_transform(categorical_vector, colors)
+        ['#E69F00', '#56B4E9', '#009E73', '#E69F00']
         ```
 
     access color encoder:
         ```
-        >>> encoded_color_map = ce.encoder
+        >>> ce.encoder
+        OrderedDict([('group a', '#E69F00'),
+             ('group b', '#56B4E9'),
+             ('group c', '#009E73')])
         ```
     """
 
@@ -159,6 +168,8 @@ class ColorEncoder:
 
         Example:
             ```
+            >>> categorical_vector = ['group a','group b','group c','group a']
+            >>> colors = ColorPalette["okabeito"]
             >>> ce = ColorEncoder()
             >>> ce.fit(categroical_vector, colors)
             ```
@@ -178,9 +189,13 @@ class ColorEncoder:
 
         Example:
             ```
+            >>> categorical_vector = ['group a','group b','group c','group a']
+            >>> colors = ColorPalette["okabeito"]
             >>> ce = color_encoder()
             >>> ce.fit(categroical_vector, colors)
-            >>> encoded_colors = ce.transform(new_categorical_vector)
+            >>> new_categorical_vector = ["group b", "group c"]
+            >>> ce.transform(new_categorical_vector)
+            ['#56B4E9', '#009E73']
             ```
 
         Args:
@@ -205,12 +220,16 @@ class ColorEncoder:
 
         Example:
             ```
+            >>> categorical_vector = ["group1", "group2", "group1"]
+            >>> colors = ["salmon","gold"]
             >>> ce = ColorEncoder()
-            >>> encoded_colors = ce.fit_transform(categorical_vector, colors)
+            >>> ce.fit_transform(categorical_vector, colors)
+            ['salmon', 'gold', 'salmon']
             ```
 
         Args:
-            xs: list of input values (i.e. labels of the samples), can be duplicated
+            categorical_vector: list of input values (i.e. labels of the samples), can be duplicated
+            colors: list of colors to be assigned to the categories
         Returns:
             list of colors corresponding to the input
         """
