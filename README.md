@@ -25,6 +25,12 @@ or via conda:
 conda install -c conda-forge ridgeplot-py
 ```
 
+or via pypi:
+
+```bash
+pip install ridgeplot-py
+```
+
 ## Usage ##
 
 ```python
