@@ -19,6 +19,12 @@ cd ridgeplot-py
 python setup.py install 
 ```
 
+or via conda:
+
+```bash
+conda install -c conda-forge ridgeplot-py
+```
+
 ## Usage ##
 
 ```python
