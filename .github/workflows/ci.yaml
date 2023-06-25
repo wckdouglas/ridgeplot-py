@@ -68,5 +68,5 @@ jobs:
 
       - name: publish to pypi
         run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build
+          poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+
