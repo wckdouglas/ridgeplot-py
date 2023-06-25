@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ridgeplot-py"
-version = "0.2.0"
+version = "0.0.0" # managed by poetry-dynamic-versioning
 description = "Plotting ridgeplots with matplotlib"
 authors = ["Douglas Wu <wckdouglas@gmail.com>"]
 license = "MIT"
@@ -21,9 +21,14 @@ pytest = "^6.2.5"
 pytest-cov = "^2.12.1"
 mypy = "^0.910"
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.poetry.extras]
 dev = ["pytest", "pytest-cov", "mypy"]
@@ -37,3 +42,4 @@ module = [
     "scipy.*"
 ]
 ignore_missing_imports = true
+
