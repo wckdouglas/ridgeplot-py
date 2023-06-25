@@ -72,7 +72,6 @@ jobs:
 
       - name: publish to pypi
         run: |
-          poetry install 
           poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
 
   deploy:
