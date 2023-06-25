@@ -64,3 +64,14 @@ ridgeplot(
 ## Example ##
 
 A [notebook](https://github.com/wckdouglas/ridgeplot-py/blob/main/Example.ipynb) showing quick howto is included in this repo!
+
+
+## Build on Apple silicon ##
+
+scipy may cause error and may be able to solved by the [this stackoverflow answer](https://stackoverflow.com/a/71764028):
+
+```
+brew install openblas
+export OPENBLAS="$(brew --prefix openblas)" 
+poetry install
+```
