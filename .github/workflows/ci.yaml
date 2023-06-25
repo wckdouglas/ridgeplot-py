@@ -33,7 +33,6 @@ jobs:
         with:
           poetry-version: 1.1.4
 
-
       - name: Install dependencies
         run: |
           poetry install -E dev
@@ -51,3 +50,16 @@ jobs:
         run: |
           poetry run mypy ridgeplot
 
+  publish:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Install poetry
+        uses: Gr1N/setup-poetry@v4
+        with:
+          poetry-version: 1.1.4
+
+      - name: publish to pypi
+        run: |
+          poetry publish
