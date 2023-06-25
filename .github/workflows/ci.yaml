@@ -34,7 +34,7 @@ jobs:
       - name: Install poetry
         uses: Gr1N/setup-poetry@v8
         with:
-          poetry-version: ${{ POETRY_VERSION }}
+          poetry-version: ${{ env.POETRY_VERSION }}
 
       - uses: actions/cache@v2
         with:
@@ -67,7 +67,7 @@ jobs:
       - name: Install poetry
         uses: Gr1N/setup-poetry@v8
         with:
-          poetry-version: ${{ POETRY_VERSION }}
+          poetry-version: ${{ env.POETRY_VERSION }}
 
       - name: publish to pypi
         run: |
