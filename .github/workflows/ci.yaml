@@ -62,6 +62,8 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+        repository-projects: write
 
     steps:
       - uses: actions/checkout@v2
@@ -74,7 +76,13 @@ jobs:
 
       - name: publish to pypi
         run: |
+          pip install poetry-dynamic-versioning
           poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+
+      - name: push tag
+        run: |
+            gh release create $(poetry version --short)
+
 
   deploy:
     name: deploy doc
