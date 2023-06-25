@@ -63,7 +63,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-        repository-projects: write
+        contents: write
 
     steps:
       - uses: actions/checkout@v2
