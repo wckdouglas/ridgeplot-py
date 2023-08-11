@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+from typing import List
+
 import numpy as np
 import numpy.typing as npt
 
 
-def scaling(x: list[float]) -> npt.NDArray[np.float64]:
+def scaling(x: List[float]) -> npt.NDArray[np.float64]:
     """
     scaling a vector to a range between 0 and 1
 
