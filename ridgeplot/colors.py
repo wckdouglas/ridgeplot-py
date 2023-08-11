@@ -2,16 +2,14 @@
 for matplotlib plots and a collections of color palettes. 
 """
 
-from __future__ import annotations
-
 from collections import OrderedDict
-from typing import Any
+from typing import Any, Dict, List
 
 import matplotlib.axes
 import matplotlib.patches as mpatches
 from matplotlib import legend
 
-ColorPalette: dict[str, list[str]] = dict(
+ColorPalette: Dict[str, List[str]] = dict(
     # 1. maximum
     # modified from:
     # https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/
@@ -89,7 +87,7 @@ ColorPalette: dict[str, list[str]] = dict(
 )
 
 
-def ordered_set(xs: list[str]) -> list[str]:
+def ordered_set(xs: List[str]) -> List[str]:
     """
     this is a simple function to make a set according to the order of the input list
 
@@ -105,7 +103,7 @@ def ordered_set(xs: list[str]) -> list[str]:
     return sorted(set(xs), key=xs.index)
 
 
-def check_color_vector_size(categorical_vector: list[str], color_vector: list[str]) -> list[str]:
+def check_color_vector_size(categorical_vector: List[str], color_vector: List[str]) -> List[str]:
     """
     asserting the number of different categories in the input list is less than the given color list
 
@@ -158,11 +156,11 @@ class ColorEncoder:
     """
 
     def __init__(self):
-        self.x: list[str] = list()
-        self.distinct_categories: list[str] = []
+        self.x: List[str] = list()
+        self.distinct_categories: List[str] = []
         self.encoder: OrderedDict[str, str] = OrderedDict()
 
-    def fit(self, categories: list[str], colors: list[str] = ColorPalette["invitae"]) -> None:
+    def fit(self, categories: List[str], colors: List[str] = ColorPalette["invitae"]) -> None:
         """
         mapping colors to the unique categories in the input list
         basically fill the encoder dictionary
@@ -184,7 +182,7 @@ class ColorEncoder:
         self.distinct_categories = check_color_vector_size(categories, colors)
         self.encoder = OrderedDict({category: col for category, col in zip(self.distinct_categories, colors)})
 
-    def transform(self, categories: list[str]) -> list[str]:
+    def transform(self, categories: List[str]) -> List[str]:
         """
         mapping color to the a list of category in the input list
 
@@ -215,7 +213,7 @@ class ColorEncoder:
 
         return [self.encoder[category] for category in categories]
 
-    def fit_transform(self, categories: list[str], colors: list[str] = ColorPalette["invitae"]) -> list[str]:
+    def fit_transform(self, categories: List[str], colors: List[str] = ColorPalette["invitae"]) -> List[str]:
         """
         first map the color to the categories, and then return the corresponding color for each category in the input list
 
@@ -237,7 +235,7 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax: matplotlib.axes, sort: bool = False, **kwargs: dict[str, Any]) -> legend.Legend:
+    def show_legend(self, ax: matplotlib.axes, sort: bool = False, **kwargs: Dict[str, Any]) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 
