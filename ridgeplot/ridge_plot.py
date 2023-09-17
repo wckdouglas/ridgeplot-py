@@ -1,4 +1,4 @@
-"""This module contains the main function to plot 
+"""This module contains the main function to plot
 [ridgeplots](https://clauswilke.com/blog/2017/09/15/goodbye-joyplots/).
 """
 from __future__ import annotations
@@ -45,10 +45,13 @@ def ridgeplot(
 
     Args:
         ax: a matplotlib ax object for writing the plot
-        data: a dictionary of data, key is the label of the group, values are the data values in the group
+        data: a dictionary of data, key is the label of
+            the group, values are the data values in the group
         xlim: x-limits for the plot (xmin, xmax)
-        fill_colors: colors for the fill under the distribution, must be same length as input data (default: all steelblue)
-        line_colors: colors for the line drawing the distribution, must be same length as input data (default: all white)
+        fill_colors: colors for the fill under the distribution,
+            must be same length as input data (default: all steelblue)
+        line_colors: colors for the line drawing the distribution,
+            must be same length as input data (default: all white)
         label_size: label size of the name of each distribution
         fill_alpha: alpha value for the fill under the distribution (default: 0.5)
 
