@@ -1,5 +1,5 @@
 """This module collects functions for manipulating color legends
-for matplotlib plots and a collections of color palettes. 
+for matplotlib plots and a collections of color palettes.
 """
 
 from collections import OrderedDict
@@ -84,6 +84,7 @@ ColorPalette: Dict[str, List[str]] = dict(
         "#686b69",
         "#417d55",
     ],
+    purples=["#9c6cf8", "#9c14e7", "#460ecf", "#54186f", "#f75af8"],
 )
 
 
@@ -91,14 +92,15 @@ def ordered_set(xs: List[str]) -> List[str]:
     """
     this is a simple function to make a set according to the order of the input list
 
-    because python set is unordered, https://stackoverflow.com/questions/9792664/converting-a-list-to-a-set-changes-element-order
+    because python set is unordered, see:
+        https://stackoverflow.com/questions/9792664/converting-a-list-to-a-set-changes-element-order
 
     Args:
         xs: list of input values
 
     Returns:
         a list of unique input values in the order of how they arranged in the input list
-    """
+    """  # noqa: E501
     xs = list(xs)
     return sorted(set(xs), key=xs.index)
 
@@ -215,7 +217,8 @@ class ColorEncoder:
 
     def fit_transform(self, categories: List[str], colors: List[str] = ColorPalette["invitae"]) -> List[str]:
         """
-        first map the color to the categories, and then return the corresponding color for each category in the input list
+        first map the color to the categories, and then return the
+        corresponding color for each category in the input list
 
         Example:
             ```
