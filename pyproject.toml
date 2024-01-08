@@ -26,7 +26,6 @@ ruff = "^0.0.290"
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
-style = "semver"
 metadata= false
 bump = true
 pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
