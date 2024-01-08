@@ -28,13 +28,14 @@ enable = true
 vcs = "git"
 metadata= false
 bump = true
+style = "pep440"
 pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 format-jinja = """
-    {%- if distance == 0 -%}
-        {{- base -}}
-    {%- else -%}
-        {{- base }}.dev{{ distance }}+g{{commit}}
-    {%- endif -%}
+    {%- set ns = namespace(version=base) -%}
+    {%- for i in range(distance) -%}
+        {%- set ns.version = bump_version(ns.version) -%}
+    {%- endfor -%}
+    {{- ns.version -}}
 """
 
 [build-system]
