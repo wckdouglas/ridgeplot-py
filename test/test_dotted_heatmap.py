@@ -1,13 +1,15 @@
-from unittest.mock import patch
-
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 from ridgeplot import dotted_heatmap
 
+matplotlib.use("agg")
 
-@patch("matplotlib.pyplot.figure")
-def test_ridgeplot(figure):
+
+def test_ridgeplot():
+    figure = plt.figure()
     ax = figure.add_subplot(111)
     n = 10
     data = pd.DataFrame(
