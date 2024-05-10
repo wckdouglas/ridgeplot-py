@@ -23,6 +23,18 @@ def dotted_heatmap(
     """
     Plotting dotted heatmap
 
+    Example:
+
+    >>> import matplotlib.pyplot as plt
+    >>> fig = plt.figure()
+    >>> ax = fig.add_subplot(111)
+    >>> data = pd.DataFrame(
+    ...    np.random.randn(n, n),
+    ...    index=[f"feature{i}" for i in range(n)],
+    ...    columns=[f"sample{i}" for i in range(n)],
+    ... )
+    >>> dotted_heatmap(data=data,ax=ax, cmap="viridis")
+
     :param pd.DataFrame data: data to plot
     :param matplotlib.axes ax: matplotlib ax object
     :param str cmap: cmap value, defaults to "cividis"
