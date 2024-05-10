@@ -60,7 +60,7 @@ jobs:
         
       - name: format check
         run: |
-            poetry run pre-commit run --all-files --show-diff-on-failure
+          poetry run pre-commit run --all-files --show-diff-on-failure
 
   publish:
     needs: build
