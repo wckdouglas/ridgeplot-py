@@ -1,6 +1,7 @@
 """This module contains the main function to plot
 [ridgeplots](https://clauswilke.com/blog/2017/09/15/goodbye-joyplots/).
 """
+
 from __future__ import annotations
 
 from typing import Optional
@@ -18,7 +19,7 @@ class RidgePlotError(Exception):
 
 
 def ridgeplot(
-    ax: matplotlib.axes,
+    ax: matplotlib.axes._axes.Axes,
     data: dict[str, list[float]],
     xlim: Optional[tuple[float, float]] = None,
     fill_colors: Optional[list[str]] = None,

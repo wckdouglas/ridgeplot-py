@@ -6,6 +6,7 @@ from ridgeplot.colors import (
     ColorEncoder,
     ColorPalette,
     check_color_vector_size,
+    get_cmap_color_values,
     ordered_set,
 )
 
@@ -81,3 +82,7 @@ def test_ColorEncoder_show_legend(figure, color_encoder):
 def test_ColorEncoder_show_legend_sort(figure, color_encoder):
     ax = figure.add_subplot(111)
     color_encoder.show_legend(ax, sort=True)
+
+
+def test_get_cmap_color_values():
+    assert get_cmap_color_values("viridis") == ("#440154", "#fde725")
