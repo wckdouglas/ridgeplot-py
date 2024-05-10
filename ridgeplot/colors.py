@@ -141,6 +141,7 @@ class ColorEncoder:
 
     Example:
         ```
+        >>> from ridgeplot.colors import ColorEncoder, ColorPalette
         >>> categorical_vector = ['group a','group b','group c','group a']
         >>> colors = ColorPalette["okabeito"]
         >>> ce = ColorEncoder()

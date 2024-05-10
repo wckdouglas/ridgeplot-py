@@ -26,6 +26,7 @@ def dotted_heatmap(
     Example:
         ```
         >>> import matplotlib.pyplot as plt
+        >>> from ridgeplot.dotted_heatmap import dotted_heatmap
         >>> fig = plt.figure()
         >>> ax = fig.add_subplot(111)
         >>> data = pd.DataFrame(
