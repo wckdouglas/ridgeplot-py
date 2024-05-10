@@ -26,6 +26,7 @@ def dotted_heatmap(
     Example:
         ```
         >>> import matplotlib.pyplot as plt
+        >>> from ridgeplot.dotted_heatmap import dotted_heatmap
         >>> fig = plt.figure()
         >>> ax = fig.add_subplot(111)
         >>> data = pd.DataFrame(
@@ -36,11 +37,12 @@ def dotted_heatmap(
         >>> dotted_heatmap(data=data,ax=ax, cmap="viridis")
         ```
 
-    :param pd.DataFrame data: data to plot
-    :param matplotlib.axes ax: matplotlib ax object
-    :param str cmap: cmap value, defaults to "cividis"
-    :param Optional[float] circle_size: raidus of the circles,
-        if None, we will use relaive sizes, defaults to None
+    Args:
+        data: data to plot
+        ax: matplotlib ax object
+        cmap: cmap value, defaults to "cividis"
+        circle_size: raidus of the circles,
+            if None, we will use relaive sizes, defaults to None
     """
     nrows, ncols = data.shape
     x, y = np.meshgrid(np.arange(ncols), np.arange(nrows))
@@ -64,5 +66,4 @@ def dotted_heatmap(
     ax.tick_params(left=False, bottom=False)
     for d in ["top", "bottom", "left", "right"]:
         ax.spines[d].set(alpha=0.5)
-    cbar = plt.colorbar(col)
-    return cbar
+    plt.colorbar(col)

@@ -141,6 +141,7 @@ class ColorEncoder:
 
     Example:
         ```
+        >>> from ridgeplot.colors import ColorEncoder, ColorPalette
         >>> categorical_vector = ['group a','group b','group c','group a']
         >>> colors = ColorPalette["okabeito"]
         >>> ce = ColorEncoder()
@@ -279,8 +280,11 @@ def get_cmap_color_values(cmap_name: str) -> Tuple[str, str]:
     """
     Get color values for the min and max color in a color map
 
-    :param str cmap_name: color map name (e.g. viridis)
-    :return Tuple[str, str]: hex code for the min and max color
+    Args:
+        cmap_name: color map name (e.g. viridis)
+
+    Returns:
+        hex code for the min and max color
     """
     cmap = get_cmap(cmap_name)
     return to_hex(cmap(0.0)), to_hex(cmap(1.0))

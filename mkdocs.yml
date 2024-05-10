@@ -4,12 +4,12 @@ theme:
   name: "material"
 
 plugins:
-- search
-- mkdocstrings
+  - search
+  - mkdocstrings
 
 nav:
   - ridgeplot-py docs: index.md
   - ridgeplot.colors: colors.md
   - ridgeplot.ridge_plot: ridge_plot.md
   - ridgeplot.stats: stats.md
-
+  - ridgeplot.dotted_heatmap: dotted_heatmap.md

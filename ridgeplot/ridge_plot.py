@@ -34,6 +34,7 @@ def ridgeplot(
         ```
         >>> import numpy as np
         >>> import matplotlib.pyplot as plt
+        >>> from ridgeplot.ridge_plot import ridgeplot
 
         >>> data = {}
         >>> for i in range(10):
