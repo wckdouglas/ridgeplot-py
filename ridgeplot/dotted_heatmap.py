@@ -11,7 +11,6 @@ import matplotlib.axes
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
 from matplotlib.collections import PatchCollection
 
 
@@ -50,7 +49,6 @@ def dotted_heatmap(
     ax.set_yticks(np.arange(nrows + 1) - 0.5, minor=True)
     ax.grid(which="minor", alpha=0.5, color="white")
     ax.tick_params(left=False, bottom=False)
-    sns.despine()
     for d in ["top", "bottom", "left", "right"]:
         ax.spines[d].set(alpha=0.5)
     cbar = plt.colorbar(col)
