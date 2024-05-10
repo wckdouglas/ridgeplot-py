@@ -250,7 +250,12 @@ class ColorEncoder:
         self.fit(categories, colors=colors)
         return self.transform(categories)
 
-    def show_legend(self, ax: matplotlib.axes, sort: bool = False, **kwargs: Dict[str, Any]) -> legend.Legend:
+    def show_legend(
+        self,
+        ax: matplotlib.axes._axes.Axes,
+        sort: bool = False,
+        **kwargs: Dict[str, Any],
+    ) -> legend.Legend:
         """
         Adding matplotlib legend describing the color encoder to a matplotlib ax object
 

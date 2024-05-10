@@ -16,7 +16,7 @@ from matplotlib.collections import PatchCollection
 
 def dotted_heatmap(
     data: pd.DataFrame,
-    ax: matplotlib.axes,
+    ax: matplotlib.axes._axes.Axes,
     cmap: str = "cividis",
     circle_size: Optional[float] = None,
 ):
