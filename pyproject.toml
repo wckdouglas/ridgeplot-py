@@ -1,12 +1,10 @@
 [tool.poetry]
 name = "ridgeplot-py"
-version = "0.0.0" # managed by poetry-dynamic-versioning
+version = "0.0.0"                                   # managed by poetry-dynamic-versioning
 description = "Plotting ridgeplots with matplotlib"
 authors = ["Douglas Wu <wckdouglas@gmail.com>"]
 license = "MIT"
-packages = [
-    {"include" = "ridgeplot"}
-]
+packages = [{ "include" = "ridgeplot" }]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -17,19 +15,21 @@ more-itertools = "^8.9.0"
 numpy = "^1.21.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.5"
-pytest-cov = "^2.12.1"
-mypy = "^0.910"
-black = "22.3.0"
-ruff = "^0.0.290"
+dev = [
+    "pytest>=6.2.5",
+    "pytest-cov>=2.12.1",
+    "mypy>=0.910",
+    "black==22.3.0",
+    "ruff>=0.0.290",
+]
 
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
-metadata= false
+metadata = false
 bump = true
 style = "pep440"
-pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
+pattern = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 format-jinja = """
     {%- set ns = namespace(version=base) -%}
     {%- for i in range(distance) -%}
@@ -49,13 +49,9 @@ dev = ["pytest", "pytest-cov", "mypy", "ruff", "black"]
 plugins = "numpy.typing.mypy_plugin"
 
 [[tool.mypy.overrides]]
-module = [
-    "matplotlib.*",
-    "scipy.*"
-]
+module = ["matplotlib.*", "scipy.*"]
 ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 120
 select = ['E', 'F', 'W', 'I']
-
