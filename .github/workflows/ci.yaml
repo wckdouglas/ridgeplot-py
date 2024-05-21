@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          rye install .
+          rye sync --no-lock
 
       - name: type check
         run: |
