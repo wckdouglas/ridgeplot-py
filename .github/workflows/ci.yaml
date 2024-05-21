@@ -31,19 +31,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install poetry
-        uses: Gr1N/setup-poetry@v8
-        with:
-          poetry-version: ${{ env.POETRY_VERSION }}
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}-${{ matrix.python-version }}
+      - name: Install the latest version of rye
+        uses: eifinger/setup-rye@v3
 
       - name: Install dependencies
         run: |
-          poetry install --with dev
+          pip install -e ".[dev]"
         
       - name: Test with pytest
         run: |

@@ -5,7 +5,7 @@ description = "Plotting ridgeplots with matplotlib"
 authors = [{ name = "Douglas Wu", email = "wckdouglas@gmail.com" }]
 license = "MIT"
 readme = "README.md"
-requires-python = ">= 3.9"
+requires-python = ">= 3.9, , <=3.12"
 dependencies = [
     "scipy>=1.8.0",
     "matplotlib>=3.8",
@@ -27,6 +27,9 @@ dev-dependencies = [
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
 
 [tool.mypy]
 plugins = "numpy.typing.mypy_plugin"
