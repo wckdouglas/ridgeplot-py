@@ -22,6 +22,14 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
+    permissions:
+      # Gives the action the necessary permissions for publishing new
+      # comments in pull requests.
+      pull-requests: write
+      # Gives the action the necessary permissions for pushing data to the
+      # python-coverage-comment-action branch, and for editing existing
+      # comments (to avoid publishing multiple comments in the same PR)
+      contents: write
 
     steps:
       - uses: actions/checkout@v2
@@ -55,6 +63,7 @@ jobs:
           bash <(curl -s https://codecov.io/bash)
 
       - uses: py-cov-action/python-coverage-comment-action@v3
+        if: ${{ matrix.python-version }} == "3.9"
         with:
           GITHUB_TOKEN: ${{ github.token }}
 
