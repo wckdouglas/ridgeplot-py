@@ -45,6 +45,9 @@ ignore_errors = true
 line-length = 120
 select = ['E', 'F', 'W', 'I']
 
+[tool.coverage.run]
+relative_files = true
+source_pkgs = ["ridgeplot"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ridgeplot"]
