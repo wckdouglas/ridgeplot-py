@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -e ".[dev]"
+          rye install .
 
       - name: type check
         run: |
