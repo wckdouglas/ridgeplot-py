@@ -22,6 +22,14 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
+    permissions:
+      # Gives the action the necessary permissions for publishing new
+      # comments in pull requests.
+      pull-requests: write
+      # Gives the action the necessary permissions for pushing data to the
+      # python-coverage-comment-action branch, and for editing existing
+      # comments (to avoid publishing multiple comments in the same PR)
+      contents: write
 
     steps:
       - uses: actions/checkout@v2
@@ -31,36 +39,40 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install poetry
-        uses: Gr1N/setup-poetry@v8
-        with:
-          poetry-version: ${{ env.POETRY_VERSION }}
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}-${{ matrix.python-version }}
+      - name: Install the latest version of rye
+        uses: eifinger/setup-rye@v3
 
       - name: Install dependencies
         run: |
-          poetry install --with dev
-        
-      - name: Test with pytest
-        run: |
-          poetry run coverage run -m pytest -l  -rPap -vvv -p no:warnings 
-          poetry run coverage xml
-
-      - name: codecov
-        run: |
-          bash <(curl -s https://codecov.io/bash)
+          rye sync --no-lock
 
       - name: type check
         run: |
-          poetry run mypy ridgeplot
-        
+          rye run mypy src/ridgeplot
+          
       - name: format check
         run: |
-          poetry run pre-commit run --all-files --show-diff-on-failure
+          rye run pre-commit run --all-files --show-diff-on-failure
+
+      - name: Test with pytest
+        run: |
+          rye test -- -l  -rPap -vvv -p no:warnings --cov 
+
+      - uses: py-cov-action/python-coverage-comment-action@v3
+        id: coverage_comment
+        if: ${{ matrix.python-version }} == "3.9"
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          ANNOTATE_MISSING_LINES: true
+
+
+      - name: Store Pull Request comment to be posted
+        uses: actions/upload-artifact@v4
+        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
+        with:
+          name: python-coverage-comment-action
+          path: python-coverage-comment-action.txt
+
 
   publish:
     needs: build
@@ -73,19 +85,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
             fetch-depth: 0
-      - name: Install poetry
-        uses: Gr1N/setup-poetry@v8
-        with:
-          poetry-version: ${{ env.POETRY_VERSION }}
+
+      - name: Install the latest version of rye
+        uses: eifinger/setup-rye@v3
 
       - name: publish to pypi
         run: |
-          poetry self add poetry-dynamic-versioning
-          poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+          rye publish --token --password ${{ secrets.PYPI_TOKEN }}
 
       - name: push tag
         run: |
-            gh release create $(poetry version --short)
+            gh release create $(rye version)
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

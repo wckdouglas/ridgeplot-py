@@ -1,49 +1,34 @@
-[tool.poetry]
+[project]
 name = "ridgeplot-py"
-version = "0.0.0"                                   # managed by poetry-dynamic-versioning
+dynamic = ["version"]
 description = "Plotting ridgeplots with matplotlib"
-authors = ["Douglas Wu <wckdouglas@gmail.com>"]
+authors = [{ name = "Douglas Wu", email = "wckdouglas@gmail.com" }]
 license = "MIT"
-packages = [{ "include" = "ridgeplot" }]
 readme = "README.md"
+requires-python = ">= 3.9"
+dependencies = [
+    "scipy>=1.8.0",
+    "matplotlib>=3.8",
+    "more-itertools>=8.9.0",
+    "numpy>=1.21.1",
+    "pandas>=2.2.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-scipy = "^1.8.0"
-matplotlib = "^3.8"
-more-itertools = "^8.9.0"
-numpy = "^1.21.1"
-pandas = "^2.2.2"
-poetry = "^1.8.3"
-
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^6.2.5"
-pytest-cov = "^2.12.1"
-mypy = "^0.990"
-ruff = "^0.0.290"
-pre-commit = "^3.7.0"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-metadata = false
-bump = true
-style = "pep440"
-pattern = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
-format-jinja = """
-    {%- set ns = namespace(version=base) -%}
-    {%- for i in range(distance) -%}
-        {%- set ns.version = bump_version(ns.version) -%}
-    {%- endfor -%}
-    {{- ns.version -}}
-"""
+[tool.rye]
+dev-dependencies = [
+    "pytest>=6.2.5",
+    "pytest-cov>=2.12.1",
+    "mypy>=1.10.0",
+    "ruff>=0.0.290",
+    "pre-commit>=3.7.1",
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
 
 [tool.mypy]
 plugins = "numpy.typing.mypy_plugin"
@@ -55,7 +40,13 @@ check_untyped_defs = true
 module = ["matplotlib.*", "scipy.*"]
 ignore_errors = true
 
-
 [tool.ruff]
 line-length = 120
 select = ['E', 'F', 'W', 'I']
+
+[tool.coverage.run]
+relative_files = true
+source_pkgs = ["ridgeplot"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ridgeplot"]
