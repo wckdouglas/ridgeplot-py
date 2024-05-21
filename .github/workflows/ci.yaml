@@ -77,6 +77,10 @@ jobs:
 
       - name: Install the latest version of rye
         uses: eifinger/setup-rye@v3
+    
+      - name: Build dist
+        run: |
+          rye build
 
       - name: publish to pypi
         run: |
