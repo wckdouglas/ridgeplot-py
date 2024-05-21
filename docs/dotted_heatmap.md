@@ -1,1 +1,1 @@
-::: ridgeplot.dotted_heatmap
+::: src.ridgeplot.dotted_heatmap
