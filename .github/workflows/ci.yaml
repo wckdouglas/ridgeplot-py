@@ -66,14 +66,6 @@ jobs:
           ANNOTATE_MISSING_LINES: true
 
 
-      - name: Store Pull Request comment to be posted
-        uses: actions/upload-artifact@v4
-        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
-        with:
-          name: python-coverage-comment-action
-          path: python-coverage-comment-action.txt
-
-
   publish:
     needs: build
     if: github.ref == 'refs/heads/main'
@@ -91,7 +83,7 @@ jobs:
 
       - name: publish to pypi
         run: |
-          rye publish --token --password ${{ secrets.PYPI_TOKEN }}
+          rye publish --token ${{ secrets.PYPI_TOKEN }}
 
       - name: push tag
         run: |
