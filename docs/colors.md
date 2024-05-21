@@ -1,1 +1,1 @@
-::: ridgeplot.colors
+::: src.ridgeplot.colors

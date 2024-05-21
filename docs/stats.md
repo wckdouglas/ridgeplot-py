@@ -1,1 +1,1 @@
-::: ridgeplot.stats
+::: src.ridgeplot.stats

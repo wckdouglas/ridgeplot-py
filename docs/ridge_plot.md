@@ -1,1 +1,1 @@
-::: ridgeplot.ridge_plot
+::: src.ridgeplot.ridge_plot
