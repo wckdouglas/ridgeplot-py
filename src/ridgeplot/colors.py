@@ -8,8 +8,8 @@ from typing import Any, Dict, List, Tuple
 import matplotlib.axes
 import matplotlib.patches as mpatches
 from matplotlib import legend
-from matplotlib.cm import get_cmap
 from matplotlib.colors import to_hex
+from matplotlib.pyplot import get_cmap
 
 ColorPalette: Dict[str, List[str]] = dict(
     # 1. maximum

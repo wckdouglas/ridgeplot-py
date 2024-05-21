@@ -17,6 +17,8 @@ certifi==2024.2.2
     # via requests
 cffi==1.16.0
     # via xattr
+cfgv==3.4.0
+    # via pre-commit
 charset-normalizer==3.3.2
     # via requests
 cleo==2.1.0
@@ -39,10 +41,16 @@ filelock==3.14.0
     # via virtualenv
 fonttools==4.51.0
     # via matplotlib
+identify==2.5.36
+    # via pre-commit
 idna==3.7
     # via requests
 importlib-metadata==7.1.0
+    # via build
     # via keyring
+    # via poetry
+importlib-resources==6.4.0
+    # via matplotlib
 installer==0.7.0
     # via poetry
 jaraco-classes==3.4.0
@@ -58,6 +66,8 @@ more-itertools==10.2.0
     # via ridgeplot-py
 msgpack==1.0.8
     # via cachecontrol
+nodeenv==1.8.0
+    # via pre-commit
 numpy==1.26.4
     # via contourpy
     # via matplotlib
@@ -87,6 +97,8 @@ poetry-core==1.9.0
     # via poetry-plugin-export
 poetry-plugin-export==1.8.0
     # via poetry
+pre-commit==3.7.1
+    # via ridgeplot-py
 ptyprocess==0.7.0
     # via pexpect
 pycparser==2.22
@@ -101,6 +113,8 @@ python-dateutil==2.9.0.post0
     # via pandas
 pytz==2024.1
     # via pandas
+pyyaml==6.0.1
+    # via pre-commit
 rapidfuzz==3.9.1
     # via cleo
 requests==2.32.1
@@ -111,10 +125,15 @@ requests-toolbelt==1.0.0
     # via poetry
 scipy==1.13.0
     # via ridgeplot-py
+setuptools==69.5.1
+    # via nodeenv
 shellingham==1.5.4
     # via poetry
 six==1.16.0
     # via python-dateutil
+tomli==2.0.1
+    # via build
+    # via poetry
 tomlkit==0.12.5
     # via poetry
 trove-classifiers==2024.5.17
@@ -126,7 +145,9 @@ urllib3==2.2.1
     # via requests
 virtualenv==20.26.2
     # via poetry
+    # via pre-commit
 xattr==1.1.0
     # via poetry
 zipp==3.18.2
     # via importlib-metadata
+    # via importlib-resources

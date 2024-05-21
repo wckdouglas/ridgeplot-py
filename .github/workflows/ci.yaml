@@ -37,23 +37,27 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -e ".[dev]"
-        
+
+      - name: type check
+        run: |
+          rye run mypy src/ridgeplot
+          
+      - name: format check
+        run: |
+          rye run pre-commit run --all-files --show-diff-on-failure
+
       - name: Test with pytest
         run: |
-          poetry run coverage run -m pytest -l  -rPap -vvv -p no:warnings 
-          poetry run coverage xml
+          rye test -- -l  -rPap -vvv -p no:warnings --cov --cov-report xml:coverage.xml
 
       - name: codecov
         run: |
           bash <(curl -s https://codecov.io/bash)
 
-      - name: type check
-        run: |
-          poetry run mypy ridgeplot
-        
-      - name: format check
-        run: |
-          poetry run pre-commit run --all-files --show-diff-on-failure
+      - uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+
 
   publish:
     needs: build

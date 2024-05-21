@@ -36,6 +36,8 @@ distlib==0.3.8
     # via virtualenv
 dulwich==0.21.7
     # via poetry
+exceptiongroup==1.2.1
+    # via pytest
 fastjsonschema==2.19.1
     # via poetry
 filelock==3.14.0
@@ -48,7 +50,11 @@ identify==2.5.36
 idna==3.7
     # via requests
 importlib-metadata==7.1.0
+    # via build
     # via keyring
+    # via poetry
+importlib-resources==6.4.0
+    # via matplotlib
 iniconfig==2.0.0
     # via pytest
 installer==0.7.0
@@ -104,6 +110,7 @@ poetry-core==1.9.0
 poetry-plugin-export==1.8.0
     # via poetry
 pre-commit==3.7.1
+    # via ridgeplot-py
 ptyprocess==0.7.0
     # via pexpect
 pycparser==2.22
@@ -140,6 +147,12 @@ shellingham==1.5.4
     # via poetry
 six==1.16.0
     # via python-dateutil
+tomli==2.0.1
+    # via build
+    # via coverage
+    # via mypy
+    # via poetry
+    # via pytest
 tomlkit==0.12.5
     # via poetry
 trove-classifiers==2024.5.17
@@ -158,3 +171,4 @@ xattr==1.1.0
     # via poetry
 zipp==3.18.2
     # via importlib-metadata
+    # via importlib-resources

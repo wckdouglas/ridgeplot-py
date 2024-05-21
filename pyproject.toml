@@ -5,7 +5,7 @@ description = "Plotting ridgeplots with matplotlib"
 authors = [{ name = "Douglas Wu", email = "wckdouglas@gmail.com" }]
 license = "MIT"
 readme = "README.md"
-requires-python = ">= 3.9, , <=3.12"
+requires-python = ">= 3.9"
 dependencies = [
     "scipy>=1.8.0",
     "matplotlib>=3.8",
@@ -21,7 +21,7 @@ dev-dependencies = [
     "pytest-cov>=2.12.1",
     "mypy>=0.990",
     "ruff>=0.0.290",
-    "pre-commit>=3.7.0",
+    "pre-commit>=3.7.1",
 ]
 
 [build-system]
