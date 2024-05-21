@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  POETRY_VERSION: 1.8.3
-
 jobs:
   build:
     name: poetry-build
@@ -83,7 +80,7 @@ jobs:
 
       - name: publish to pypi
         run: |
-          rye publish --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+          rye publish --token ${{ secrets.PYPI_TOKEN }} --yes
 
       - name: push tag
         run: |
