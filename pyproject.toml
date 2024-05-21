@@ -21,14 +21,23 @@ dev-dependencies = [
     "mypy>=1.10.0",
     "ruff>=0.0.290",
     "pre-commit>=3.7.1",
+    "versioningit>=3.1.1",
 ]
 
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
+requires = ["hatchling", "versioningit"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-source = "vcs"
+source = "versioningit"
+
+[tool.versioningit]
+default-version = "0.0.0+unknown"
+
+[tool.versioningit.format]
+distance = "{next_version}.dev{distance}+{vcs}{rev}"
+dirty = "{version}+dirty"
+distance-dirty = "{next_version}"                    #.dev{distance}+{vcs}{rev}.dirty"
 
 [tool.mypy]
 plugins = "numpy.typing.mypy_plugin"
