@@ -80,11 +80,11 @@ jobs:
     
       - name: Build dist
         run: |
-          rye build
+          rye build --verbose
 
       - name: publish to pypi
         run: |
-          rye publish --token ${{ secrets.PYPI_TOKEN }} --yes
+          rye publish --token ${{ secrets.PYPI_TOKEN }} --yes --verbose
 
       - name: push tag
         run: |
