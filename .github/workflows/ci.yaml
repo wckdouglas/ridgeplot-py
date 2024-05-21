@@ -83,7 +83,7 @@ jobs:
 
       - name: publish to pypi
         run: |
-          rye publish --token ${{ secrets.PYPI_TOKEN }}
+          rye publish --username __token__ --password ${{ secrets.PYPI_TOKEN }}
 
       - name: push tag
         run: |
