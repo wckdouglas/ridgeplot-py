@@ -57,7 +57,7 @@ jobs:
 
       - uses: py-cov-action/python-coverage-comment-action@v3
         id: coverage_comment
-        if: ${{ matrix.python-version }} == "3.9" && github.event_name == 'pull_request'
+        if: ${{ matrix.python-version }} == "3.9" && github.ref != 'refs/heads/main'
         with:
           GITHUB_TOKEN: ${{ github.token }}
           ANNOTATE_MISSING_LINES: true
