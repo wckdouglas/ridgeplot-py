@@ -56,16 +56,22 @@ jobs:
 
       - name: Test with pytest
         run: |
-          rye test -- -l  -rPap -vvv -p no:warnings --cov --cov-report xml:coverage.xml
-
-      - name: codecov
-        run: |
-          bash <(curl -s https://codecov.io/bash)
+          rye test -- -l  -rPap -vvv -p no:warnings --cov 
 
       - uses: py-cov-action/python-coverage-comment-action@v3
+        id: coverage_comment
         if: ${{ matrix.python-version }} == "3.9"
         with:
           GITHUB_TOKEN: ${{ github.token }}
+          ANNOTATE_MISSING_LINES: true
+
+
+      - name: Store Pull Request comment to be posted
+        uses: actions/upload-artifact@v4
+        if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
+        with:
+          name: python-coverage-comment-action
+          path: python-coverage-comment-action.txt
 
 
   publish:
