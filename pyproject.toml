@@ -34,6 +34,9 @@ source = "versioningit"
 [tool.versioningit]
 default-version = "0.0.0+unknown"
 
+[tool.versioningit.next-version]
+method = "smallest"
+
 [tool.versioningit.format]
 distance = "{next_version}"
 dirty = "{version}+dirty"
