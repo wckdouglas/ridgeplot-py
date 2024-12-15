@@ -55,7 +55,7 @@ dev-dependencies = [
 ]
 
 [tool.rye.scripts]
-check = {chain = ["lint", "type", "format", "test"]}
+check = {chain = ["format", "lint", "type", "test"]}
 format = "ruff format src/ test/"
 lint = "ruff check"
 test = "pytest -l  -rPap -vvv -p no:warnings --cov "
