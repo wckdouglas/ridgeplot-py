@@ -1,0 +1,1831 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ridge_plot/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>ridgeplot.colors - ridgeplot-py</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#src.ridgeplot.colors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ridgeplot-py" class="md-header__button md-logo" aria-label="ridgeplot-py" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ridgeplot-py
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ridgeplot.colors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ridgeplot-py" class="md-nav__button md-logo" aria-label="ridgeplot-py" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ridgeplot-py
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ridgeplot-py docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ridgeplot.colors
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ridgeplot.colors
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ColorEncoder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ColorEncoder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.fit_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit_transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.show_legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      show_legend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      transform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.check_color_vector_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      check_color_vector_size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.get_cmap_color_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_cmap_color_values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ordered_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      ordered_set
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ridge_plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ridgeplot.ridge_plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ridgeplot.stats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dotted_heatmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ridgeplot.dotted_heatmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ColorEncoder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ColorEncoder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.fit_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      fit_transform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.show_legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      show_legend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ColorEncoder.transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      transform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.check_color_vector_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      check_color_vector_size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.get_cmap_color_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_cmap_color_values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.ridgeplot.colors.ordered_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      ordered_set
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>ridgeplot.colors</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="src.ridgeplot.colors"></a>
+    <div class="doc doc-contents first">
+
+        <p>This module collects functions for manipulating color legends
+for matplotlib plots and a collections of color palettes.</p>
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.ridgeplot.colors.ColorEncoder" class="doc doc-heading">
+            <code>ColorEncoder</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>color-encoding a categoric vector</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <pre><code>&gt;&gt;&gt; from ridgeplot.colors import ColorEncoder, ColorPalette
+&gt;&gt;&gt; categorical_vector = ['group a','group b','group c','group a']
+&gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]
+&gt;&gt;&gt; ce = ColorEncoder()
+&gt;&gt;&gt; ce.fit(categorical_vector, colors)
+&gt;&gt;&gt; ce.encoder
+OrderedDict([('group a', '#E69F00'),
+     ('group b', '#56B4E9'),
+     ('group c', '#009E73')])
+&gt;&gt;&gt; ce.transform([&quot;group b&quot;, &quot;group c&quot;, &quot;group a&quot;])
+['#56B4E9', '#009E73', '#E69F00']
+</code></pre>
+</details>
+
+<details class="or" open>
+  <summary>or</summary>
+  <pre><code>&gt;&gt;&gt; ce = ColorEncoder()
+&gt;&gt;&gt; ce.fit_transform(categorical_vector, colors)
+['#E69F00', '#56B4E9', '#009E73', '#E69F00']
+</code></pre>
+</details>
+
+<details class="access-color-encoder" open>
+  <summary>access color encoder</summary>
+  <pre><code>&gt;&gt;&gt; ce.encoder
+OrderedDict([('group a', '#E69F00'),
+     ('group b', '#56B4E9'),
+     ('group c', '#009E73')])
+</code></pre>
+</details>
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">ColorEncoder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    color-encoding a categoric vector</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; from ridgeplot.colors import ColorEncoder, ColorPalette</span>
+<span class="sd">        &gt;&gt;&gt; categorical_vector = [&#39;group a&#39;,&#39;group b&#39;,&#39;group c&#39;,&#39;group a&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">        &gt;&gt;&gt; ce.fit(categorical_vector, colors)</span>
+<span class="sd">        &gt;&gt;&gt; ce.encoder</span>
+<span class="sd">        OrderedDict([(&#39;group a&#39;, &#39;#E69F00&#39;),</span>
+<span class="sd">             (&#39;group b&#39;, &#39;#56B4E9&#39;),</span>
+<span class="sd">             (&#39;group c&#39;, &#39;#009E73&#39;)])</span>
+<span class="sd">        &gt;&gt;&gt; ce.transform([&quot;group b&quot;, &quot;group c&quot;, &quot;group a&quot;])</span>
+<span class="sd">        [&#39;#56B4E9&#39;, &#39;#009E73&#39;, &#39;#E69F00&#39;]</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    or:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">        &gt;&gt;&gt; ce.fit_transform(categorical_vector, colors)</span>
+<span class="sd">        [&#39;#E69F00&#39;, &#39;#56B4E9&#39;, &#39;#009E73&#39;, &#39;#E69F00&#39;]</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    access color encoder:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; ce.encoder</span>
+<span class="sd">        OrderedDict([(&#39;group a&#39;, &#39;#E69F00&#39;),</span>
+<span class="sd">             (&#39;group b&#39;, &#39;#56B4E9&#39;),</span>
+<span class="sd">             (&#39;group c&#39;, &#39;#009E73&#39;)])</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">ColorPalette</span><span class="p">[</span><span class="s2">&quot;invitae&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        mapping colors to the unique categories in the input list</span>
+<span class="sd">        basically fill the encoder dictionary</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ```</span>
+<span class="sd">            &gt;&gt;&gt; categorical_vector = [&#39;group a&#39;,&#39;group b&#39;,&#39;group c&#39;,&#39;group a&#39;]</span>
+<span class="sd">            &gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">            &gt;&gt;&gt; ce.fit(categroical_vector, colors)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">            colors: list of colors, intentionally not checked for duplication</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            NoneType</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span> <span class="o">=</span> <span class="n">check_color_vector_size</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span><span class="n">category</span><span class="p">:</span> <span class="n">col</span> <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">,</span> <span class="n">colors</span><span class="p">)})</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        mapping color to the a list of category in the input list</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ```</span>
+<span class="sd">            &gt;&gt;&gt; categorical_vector = [&#39;group a&#39;,&#39;group b&#39;,&#39;group c&#39;,&#39;group a&#39;]</span>
+<span class="sd">            &gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; ce = color_encoder()</span>
+<span class="sd">            &gt;&gt;&gt; ce.fit(categroical_vector, colors)</span>
+<span class="sd">            &gt;&gt;&gt; new_categorical_vector = [&quot;group b&quot;, &quot;group c&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; ce.transform(new_categorical_vector)</span>
+<span class="sd">            [&#39;#56B4E9&#39;, &#39;#009E73&#39;]</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of colors for the input list according to the fitted color encoder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Call color_encoder.fit() first!!&quot;</span><span class="p">)</span>
+
+        <span class="n">union_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">)</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">union_set</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">):</span>
+            <span class="n">unseen</span> <span class="o">=</span> <span class="n">union_set</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">)</span>
+            <span class="n">unseen_str</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">unseen</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input [categories] contain unseen data!!: </span><span class="si">{</span><span class="n">unseen_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">ColorPalette</span><span class="p">[</span><span class="s2">&quot;invitae&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        first map the color to the categories, and then return the</span>
+<span class="sd">        corresponding color for each category in the input list</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ```</span>
+<span class="sd">            &gt;&gt;&gt; categorical_vector = [&quot;group1&quot;, &quot;group2&quot;, &quot;group1&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; colors = [&quot;salmon&quot;,&quot;gold&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">            &gt;&gt;&gt; ce.fit_transform(categorical_vector, colors)</span>
+<span class="sd">            [&#39;salmon&#39;, &#39;gold&#39;, &#39;salmon&#39;]</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">            colors: list of colors to be assigned to the categories</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list of colors corresponding to the input</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">show_legend</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ax</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">legend</span><span class="o">.</span><span class="n">Legend</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adding matplotlib legend describing the color encoder to a matplotlib ax object</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ax: matplotlib ax object</span>
+<span class="sd">            sort: sort the legend by the category</span>
+<span class="sd">            **kwargs: keyword arguments for matplotlib.pyplot.legend</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the matplotlib legend object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">sort</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">pat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lab</span><span class="p">)</span> <span class="k">for</span> <span class="n">lab</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+        <span class="n">lgd</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">pat</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lgd</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.ridgeplot.colors.ColorEncoder.fit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fit</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">ColorPalette</span><span class="p">[</span><span class="s1">&#39;invitae&#39;</span><span class="p">])</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>mapping colors to the unique categories in the input list
+basically fill the encoder dictionary</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <pre><code>&gt;&gt;&gt; categorical_vector = ['group a','group b','group c','group a']
+&gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]
+&gt;&gt;&gt; ce = ColorEncoder()
+&gt;&gt;&gt; ce.fit(categroical_vector, colors)
+</code></pre>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>categories</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of input values (i.e. labels of the samples), can be duplicated</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>colors</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of colors, intentionally not checked for duplication</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="src.ridgeplot.colors.ColorPalette">ColorPalette</span>[&#39;invitae&#39;]</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Returns:
+    NoneType</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">ColorPalette</span><span class="p">[</span><span class="s2">&quot;invitae&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    mapping colors to the unique categories in the input list</span>
+<span class="sd">    basically fill the encoder dictionary</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; categorical_vector = [&#39;group a&#39;,&#39;group b&#39;,&#39;group c&#39;,&#39;group a&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">        &gt;&gt;&gt; ce.fit(categroical_vector, colors)</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">        colors: list of colors, intentionally not checked for duplication</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        NoneType</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span> <span class="o">=</span> <span class="n">check_color_vector_size</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span><span class="n">category</span><span class="p">:</span> <span class="n">col</span> <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">,</span> <span class="n">colors</span><span class="p">)})</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.ridgeplot.colors.ColorEncoder.fit_transform" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fit_transform</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">ColorPalette</span><span class="p">[</span><span class="s1">&#39;invitae&#39;</span><span class="p">])</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>first map the color to the categories, and then return the
+corresponding color for each category in the input list</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <pre><code>&gt;&gt;&gt; categorical_vector = [&quot;group1&quot;, &quot;group2&quot;, &quot;group1&quot;]
+&gt;&gt;&gt; colors = [&quot;salmon&quot;,&quot;gold&quot;]
+&gt;&gt;&gt; ce = ColorEncoder()
+&gt;&gt;&gt; ce.fit_transform(categorical_vector, colors)
+['salmon', 'gold', 'salmon']
+</code></pre>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>categories</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of input values (i.e. labels of the samples), can be duplicated</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>colors</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of colors to be assigned to the categories</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="src.ridgeplot.colors.ColorPalette">ColorPalette</span>[&#39;invitae&#39;]</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Returns:
+    list of colors corresponding to the input</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">ColorPalette</span><span class="p">[</span><span class="s2">&quot;invitae&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    first map the color to the categories, and then return the</span>
+<span class="sd">    corresponding color for each category in the input list</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; categorical_vector = [&quot;group1&quot;, &quot;group2&quot;, &quot;group1&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; colors = [&quot;salmon&quot;,&quot;gold&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; ce = ColorEncoder()</span>
+<span class="sd">        &gt;&gt;&gt; ce.fit_transform(categorical_vector, colors)</span>
+<span class="sd">        [&#39;salmon&#39;, &#39;gold&#39;, &#39;salmon&#39;]</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">        colors: list of colors to be assigned to the categories</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        list of colors corresponding to the input</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.ridgeplot.colors.ColorEncoder.show_legend" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show_legend</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Adding matplotlib legend describing the color encoder to a matplotlib ax object</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ax</code>
+            </td>
+            <td>
+                  <code><span title="matplotlib.axes._axes.Axes">Axes</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>matplotlib ax object</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>sort</code>
+            </td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>sort the legend by the category</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="typing.Dict">Dict</span>[str, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>keyword arguments for matplotlib.pyplot.legend</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="matplotlib.legend.Legend">Legend</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the matplotlib legend object</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">show_legend</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">ax</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">_axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">,</span>
+    <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">legend</span><span class="o">.</span><span class="n">Legend</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adding matplotlib legend describing the color encoder to a matplotlib ax object</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ax: matplotlib ax object</span>
+<span class="sd">        sort: sort the legend by the category</span>
+<span class="sd">        **kwargs: keyword arguments for matplotlib.pyplot.legend</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        the matplotlib legend object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">sort</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">pat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lab</span><span class="p">)</span> <span class="k">for</span> <span class="n">lab</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="n">lgd</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">pat</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lgd</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.ridgeplot.colors.ColorEncoder.transform" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">transform</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>mapping color to the a list of category in the input list</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <pre><code>&gt;&gt;&gt; categorical_vector = ['group a','group b','group c','group a']
+&gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]
+&gt;&gt;&gt; ce = color_encoder()
+&gt;&gt;&gt; ce.fit(categroical_vector, colors)
+&gt;&gt;&gt; new_categorical_vector = [&quot;group b&quot;, &quot;group c&quot;]
+&gt;&gt;&gt; ce.transform(new_categorical_vector)
+['#56B4E9', '#009E73']
+</code></pre>
+</details>
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>categories</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of input values (i.e. labels of the samples), can be duplicated</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Returns:
+    list of colors for the input list according to the fitted color encoder</p>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    mapping color to the a list of category in the input list</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ```</span>
+<span class="sd">        &gt;&gt;&gt; categorical_vector = [&#39;group a&#39;,&#39;group b&#39;,&#39;group c&#39;,&#39;group a&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; colors = ColorPalette[&quot;okabeito&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; ce = color_encoder()</span>
+<span class="sd">        &gt;&gt;&gt; ce.fit(categroical_vector, colors)</span>
+<span class="sd">        &gt;&gt;&gt; new_categorical_vector = [&quot;group b&quot;, &quot;group c&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; ce.transform(new_categorical_vector)</span>
+<span class="sd">        [&#39;#56B4E9&#39;, &#39;#009E73&#39;]</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        categories: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        list of colors for the input list according to the fitted color encoder</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Call color_encoder.fit() first!!&quot;</span><span class="p">)</span>
+
+    <span class="n">union_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">)</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">union_set</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">):</span>
+        <span class="n">unseen</span> <span class="o">=</span> <span class="n">union_set</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distinct_categories</span><span class="p">)</span>
+        <span class="n">unseen_str</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">unseen</span><span class="p">)))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input [categories] contain unseen data!!: </span><span class="si">{</span><span class="n">unseen_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="src.ridgeplot.colors.check_color_vector_size" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check_color_vector_size</span><span class="p">(</span><span class="n">categorical_vector</span><span class="p">,</span> <span class="n">color_vector</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>asserting the number of different categories in the input list is less than the given color list</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>categorical_vector</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of input values (i.e. labels of the samples), can be duplicated</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>color_vector</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of colors, intentionally not checked for duplication</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of unique categories in the input list</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">check_color_vector_size</span><span class="p">(</span><span class="n">categorical_vector</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">color_vector</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    asserting the number of different categories in the input list is less than the given color list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        categorical_vector: list of input values (i.e. labels of the samples), can be duplicated</span>
+<span class="sd">        color_vector: list of colors, intentionally not checked for duplication</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of unique categories in the input list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">ordered_set</span><span class="p">(</span><span class="n">categorical_vector</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_vector</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not enough colors!! </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">color_vector</span><span class="p">)</span><span class="si">}</span><span class="s2"> colors for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span><span class="si">}</span><span class="s2"> categories&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">categories</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="src.ridgeplot.colors.get_cmap_color_values" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_cmap_color_values</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get color values for the min and max color in a color map</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>cmap_name</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>color map name (e.g. viridis)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[str, str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>hex code for the min and max color</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_cmap_color_values</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get color values for the min and max color in a color map</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        cmap_name: color map name (e.g. viridis)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        hex code for the min and max color</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">to_hex</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)),</span> <span class="n">to_hex</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="src.ridgeplot.colors.ordered_set" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">ordered_set</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>this is a simple function to make a set according to the order of the input list</p>
+<p>because python set is unordered, see:
+    https://stackoverflow.com/questions/9792664/converting-a-list-to-a-set-changes-element-order</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>xs</code>
+            </td>
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list of input values</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.List">List</span>[str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>a list of unique input values in the order of how they arranged in the input list</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ridgeplot/colors.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ordered_set</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    this is a simple function to make a set according to the order of the input list</span>
+
+<span class="sd">    because python set is unordered, see:</span>
+<span class="sd">        https://stackoverflow.com/questions/9792664/converting-a-list-to-a-set-changes-element-order</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        xs: list of input values</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a list of unique input values in the order of how they arranged in the input list</span>
+<span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">xs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
