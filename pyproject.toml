@@ -56,10 +56,10 @@ dev-dependencies = [
 
 [tool.rye.scripts]
 check = {chain = ["lint", "type", "format", "test"]}
-"format" = "ruff format"
-"lint" = "ruff check"
-"test" = "pytest -l  -rPap -vvv -p no:warnings --cov "
-"type" = "mypy src/ridgeplot"
+format = "ruff format src/ test/"
+lint = "ruff check"
+test = "pytest -l  -rPap -vvv -p no:warnings --cov "
+type = "mypy src/ridgeplot"
 
 [tool.versioningit]
 default-version = "0.0.0+unknown"
