@@ -57,8 +57,8 @@ ColorPalette: Dict[str, List[str]] = dict(
         "#075149",
         "#C80813",
         "#91331F",
-        "#1A9993",
         "#FD8CC1",
+        "#1A9993",
     ],
     # 3. okabeito:
     # Color palette proposed by Okabe and Ito
