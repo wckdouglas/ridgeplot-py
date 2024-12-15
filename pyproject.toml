@@ -54,6 +54,8 @@ ignore_errors = true
 
 [tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
 select = ['E', 'F', 'W', 'I']
 
 [tool.coverage.run]
@@ -62,3 +64,10 @@ source_pkgs = ["ridgeplot"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ridgeplot"]
+
+[tool.rye.scripts]
+check = { chain = ["lint", "type" , "format", "test"] }
+"lint" = "ruff check"
+"type" = "mypy src/ridgeplot"
+"format" = "ruff format"
+"test" = "pytest -l  -rPap -vvv -p no:warnings --cov "

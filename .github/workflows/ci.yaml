@@ -43,17 +43,9 @@ jobs:
         run: |
           rye sync --no-lock
 
-      - name: type check
+      - name: check
         run: |
-          rye run mypy src/ridgeplot
-          
-      - name: format check
-        run: |
-          rye run pre-commit run --all-files --show-diff-on-failure
-
-      - name: Test with pytest
-        run: |
-          rye test -- -l  -rPap -vvv -p no:warnings --cov 
+          rye run check
 
       - uses: py-cov-action/python-coverage-comment-action@v3
         id: coverage_comment
