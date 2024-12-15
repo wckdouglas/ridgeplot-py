@@ -5,9 +5,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.9", "3.11"]
+        python-version: ['3.9', '3.10', '3.11']
     defaults:
       run:
         shell: bash -l {0}
@@ -29,30 +29,30 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Install the latest version of rye
-        uses: eifinger/setup-rye@v3
+    - name: Install the latest version of rye
+      uses: eifinger/setup-rye@v3
 
-      - name: Install dependencies
-        run: |
-          rye sync --no-lock
+    - name: Install dependencies
+      run: |
+        rye sync --no-lock
 
-      - name: check
-        run: |
-          rye run check
+    - name: check
+      run: |
+        rye run check
 
-      - uses: py-cov-action/python-coverage-comment-action@v3
-        id: coverage_comment
-        if: matrix.python-version == '3.9' && github.ref != 'refs/heads/main'
-        with:
-          GITHUB_TOKEN: ${{ github.token }}
-          ANNOTATE_MISSING_LINES: true
+    - uses: py-cov-action/python-coverage-comment-action@v3
+      id: coverage_comment
+      if: matrix.python-version == '3.9' && github.ref != 'refs/heads/main'
+      with:
+        GITHUB_TOKEN: ${{ github.token }}
+        ANNOTATE_MISSING_LINES: true
 
 
   publish:
@@ -60,29 +60,29 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-        contents: write
+      contents: write
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-            fetch-depth: 0
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
-      - name: Install the latest version of rye
-        uses: eifinger/setup-rye@v4
+    - name: Install the latest version of rye
+      uses: eifinger/setup-rye@v4
 
-      - name: Build dist
-        run: |
-          rye build --verbose
+    - name: Build dist
+      run: |
+        rye build --verbose
 
-      - name: publish to pypi
-        run: |
-          rye publish --token ${{ secrets.PYPI_TOKEN }} --yes --verbose
+    - name: publish to pypi
+      run: |
+        rye publish --token ${{ secrets.PYPI_TOKEN }} --yes --verbose
 
-      - name: push tag
-        run: |
-            gh release create $(rye version)
-        env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: push tag
+      run: |
+        gh release create $(rye version)
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
   deploy:
@@ -92,14 +92,14 @@ jobs:
     needs: [publish, build]
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: setup
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      
-      - name: build and deploy doc
-        run: |
-          pip install mkdocs-material mkdocstrings-python mkdocs 
-          mkdocs gh-deploy --force
+    - name: setup
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: build and deploy doc
+      run: |
+        pip install mkdocs-material mkdocstrings-python mkdocs 
+        mkdocs gh-deploy --force
