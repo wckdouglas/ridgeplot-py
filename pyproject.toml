@@ -1,62 +1,22 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "versioningit"]
+
 [project]
-name = "ridgeplot-py"
-dynamic = ["version"]
+authors = [{name = "Douglas Wu", email = "wckdouglas@gmail.com"}]
+dependencies = [
+  "scipy>=1.8.0",
+  "matplotlib>=3.8",
+  "more-itertools>=8.9.0",
+  "numpy>=1.21.1",
+  "pandas>=2.2.2"
+]
 description = "Plotting ridgeplots with matplotlib"
-authors = [{ name = "Douglas Wu", email = "wckdouglas@gmail.com" }]
+dynamic = ["version"]
 license = "MIT"
+name = "ridgeplot-py"
 readme = "README.md"
 requires-python = ">= 3.9"
-dependencies = [
-    "scipy>=1.8.0",
-    "matplotlib>=3.8",
-    "more-itertools>=8.9.0",
-    "numpy>=1.21.1",
-    "pandas>=2.2.2",
-]
-
-[tool.rye]
-dev-dependencies = [
-    "pytest>=6.2.5",
-    "pytest-cov>=2.12.1",
-    "mypy>=1.10.0",
-    "ruff>=0.0.290",
-    "pre-commit>=3.7.1",
-    "versioningit>=3.1.1",
-]
-
-[build-system]
-requires = ["hatchling", "versioningit"]
-build-backend = "hatchling.build"
-
-[tool.hatch.version]
-source = "versioningit"
-
-[tool.versioningit]
-default-version = "0.0.0+unknown"
-
-[tool.versioningit.next-version]
-method = "smallest"
-
-[tool.versioningit.format]
-distance = "{next_version}"
-dirty = "{version}+dirty"
-distance-dirty = "{next_version}.dev{distance}+{vcs}{rev}.dirty"
-
-[tool.mypy]
-plugins = "numpy.typing.mypy_plugin"
-ignore_missing_imports = true
-strict_optional = true
-check_untyped_defs = true
-
-[[tool.mypy.overrides]]
-module = ["matplotlib.*", "scipy.*"]
-ignore_errors = true
-
-[tool.ruff]
-line-length = 120
-
-[tool.ruff.lint]
-select = ['E', 'F', 'W', 'I']
 
 [tool.coverage.run]
 relative_files = true
@@ -65,9 +25,49 @@ source_pkgs = ["ridgeplot"]
 [tool.hatch.build.targets.wheel]
 packages = ["src/ridgeplot"]
 
+[tool.hatch.version]
+source = "versioningit"
+
+[tool.mypy]
+check_untyped_defs = true
+ignore_missing_imports = true
+plugins = "numpy.typing.mypy_plugin"
+strict_optional = true
+
+[[tool.mypy.overrides]]
+ignore_errors = true
+module = ["matplotlib.*", "scipy.*"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ['E', 'F', 'W', 'I']
+
+[tool.rye]
+dev-dependencies = [
+  "pytest>=6.2.5",
+  "pytest-cov>=2.12.1",
+  "mypy>=1.10.0",
+  "ruff>=0.0.290",
+  "pre-commit>=3.7.1",
+  "versioningit>=3.1.1"
+]
+
 [tool.rye.scripts]
-check = { chain = ["lint", "type" , "format", "test"] }
-"lint" = "ruff check"
-"type" = "mypy src/ridgeplot"
+check = {chain = ["lint", "type", "format", "test"]}
 "format" = "ruff format"
+"lint" = "ruff check"
 "test" = "pytest -l  -rPap -vvv -p no:warnings --cov "
+"type" = "mypy src/ridgeplot"
+
+[tool.versioningit]
+default-version = "0.0.0+unknown"
+
+[tool.versioningit.format]
+dirty = "{version}+dirty"
+distance = "{next_version}"
+distance-dirty = "{next_version}.dev{distance}+{vcs}{rev}.dirty"
+
+[tool.versioningit.next-version]
+method = "smallest"
