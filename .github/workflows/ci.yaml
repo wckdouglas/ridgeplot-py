@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: poetry-build
+    name: rye CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -68,8 +68,8 @@ jobs:
             fetch-depth: 0
 
       - name: Install the latest version of rye
-        uses: eifinger/setup-rye@v3
-    
+        uses: eifinger/setup-rye@v4
+
       - name: Build dist
         run: |
           rye build --verbose
