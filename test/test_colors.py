@@ -1,6 +1,7 @@
 from unittest.mock import patch
 
 import pytest
+
 from ridgeplot.colors import (
     ColorEncoder,
     ColorPalette,
