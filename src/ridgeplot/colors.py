@@ -86,16 +86,6 @@ ColorPalette: Dict[str, List[str]] = dict(
         "#686b69",
         "#417d55",
     ],
-    vai=[
-        "#CB2BF0",
-        "#549CE0",
-        "#F048B0",
-        "#ffffff",
-        "#70F8FA",
-        "#9F5FF9",
-        "#200589",
-        "#F02719",
-    ],
     purples=["#9c6cf8", "#9c14e7", "#460ecf", "#54186f", "#f75af8"],
 )
 
