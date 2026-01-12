@@ -28,16 +28,6 @@ packages = ["src/ridgeplot"]
 [tool.hatch.version]
 source = "versioningit"
 
-[tool.mypy]
-check_untyped_defs = true
-ignore_missing_imports = true
-plugins = "numpy.typing.mypy_plugin"
-strict_optional = true
-
-[[tool.mypy.overrides]]
-ignore_errors = true
-module = ["matplotlib.*", "scipy.*"]
-
 [tool.ruff]
 line-length = 120
 
@@ -48,7 +38,6 @@ select = ['E', 'F', 'W', 'I']
 dev-dependencies = [
   "pytest>=6.2.5",
   "pytest-cov>=2.12.1",
-  "mypy>=1.10.0",
   "ruff>=0.0.290",
   "prek>=0.2.27",
   "versioningit>=3.1.1",
@@ -60,7 +49,7 @@ check = {chain = ["format", "lint", "type", "test"]}
 format = "ruff format src/ test/"
 lint = "ruff check"
 test = "pytest -l  -rPap -vvv -p no:warnings --cov "
-type = "mypy src/ridgeplot"
+type = "ty check src/ridgeplot"
 
 [tool.versioningit]
 default-version = "0.0.0+unknown"

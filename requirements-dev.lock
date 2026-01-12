@@ -32,9 +32,6 @@ matplotlib==3.9.4
     # via ridgeplot-py
 more-itertools==10.5.0
     # via ridgeplot-py
-mypy==1.13.0
-mypy-extensions==1.0.0
-    # via mypy
 numpy==2.0.2
     # via contourpy
     # via matplotlib
@@ -69,12 +66,9 @@ six==1.17.0
     # via python-dateutil
 tomli==2.2.1
     # via coverage
-    # via mypy
     # via pytest
     # via versioningit
 ty==0.0.6
-typing-extensions==4.12.2
-    # via mypy
 tzdata==2024.2
     # via pandas
 versioningit==3.1.2
