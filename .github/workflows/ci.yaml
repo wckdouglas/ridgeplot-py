@@ -90,16 +90,32 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs: [publish, build]
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/configure-pages@v5
+
+    - uses: actions/checkout@v5
 
     - name: setup
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.x
 
-    - name: build and deploy doc
+    - name: build doc
       run: |
-        pip install mkdocs-material mkdocstrings-python mkdocs 
-        mkdocs gh-deploy --force
+        pip install zensical mkdocstrings-python
+        zensical build --clean
+
+    - uses: actions/upload-pages-artifact@v4
+      with:
+        path: site
+
+    - uses: actions/deploy-pages@v4
+      id: deployment
