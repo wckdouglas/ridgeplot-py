@@ -2,6 +2,18 @@
 build-backend = "hatchling.build"
 requires = ["hatchling", "versioningit"]
 
+[dependency-groups]
+dev = [
+  "pytest>=6.2.5",
+  "pytest-cov>=2.12.1",
+  "ruff>=0.0.290",
+  "prek>=0.2.27",
+  "versioningit>=3.1.1",
+  "ty>=0.0.6",
+  "zensical>=0.0.2",
+  "mkdocstrings-python>=1.0.0"
+]
+
 [project]
 authors = [{name = "Douglas Wu", email = "wckdouglas@gmail.com"}]
 dependencies = [
@@ -35,14 +47,6 @@ line-length = 120
 select = ['E', 'F', 'W', 'I']
 
 [tool.rye]
-dev-dependencies = [
-  "pytest>=6.2.5",
-  "pytest-cov>=2.12.1",
-  "ruff>=0.0.290",
-  "prek>=0.2.27",
-  "versioningit>=3.1.1",
-  "ty>=0.0.6"
-]
 
 [tool.rye.scripts]
 check = {chain = ["format", "lint", "type", "test"]}
