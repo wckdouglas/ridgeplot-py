@@ -109,11 +109,11 @@ jobs:
       uses: astral-sh/setup-uv@v5
 
     - name: setup
-      run: uv python install 3.x
+      run: uv python install 3.12
 
     - name: build doc
       run: |
-        uv sync --python 3.x
+        uv sync --python 3.12
         uv run zensical build --clean
 
     - uses: actions/upload-pages-artifact@v4
